@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:if="${courseList}!=null">
+    <h1>Course List</h1>
+    <div th:each="courseList, state: ${courseList}">
+        <p th:text="${state.count}"></p>
+        <a th:href="@{/courseDetails+'?courseID='+${courseList.courseID}}"><img th:src="${courseList.courseImage}"></a>
+        <p th:text="${courseList.courseName}"></p>
+        <p th:text="${courseList.courseDes}"></p>
+        <p th:text="${courseList.createdDate}"></p>
+        <p th:text="${courseList.price}"></p>
+    </div>
+</div>
+<div th:if="${capstoneList}!=null">
+    <h1>Capstone List</h1>
+    <div th:each="capstoneList, state: ${capstoneList}">
+        <p th:text="${state.count}"></p>
+        <a th:href="@{/capstoneDetails+'?capstoneID='+${capstoneList.capstoneID}}"></a>
+        <img th:src="${capstoneList.capstoneImage}">
+        <p th:text="${capstoneList.capstoneName}"></p>
+        <p th:text="${capstoneList.capstoneDes}"></p>
+        <p th:text="${capstoneList.createdDate}"></p>
+    </div>
+</div>
+
+<a th:href="@{/capstoneDetails?capstoneID=1}">sdfsdf</a>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/acf74393da.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{assets/css/courseListStyle.css}">
+    <!-- Bootstrap core CSS
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <title>Course List</title>
+</head>
+
+<body>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a th:href="@{/home}" class="logo">
+                            <p style="margin-top: 40px; color: white; font-size: 25px;">Your Course</p>
+                            <!--<img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">-->
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a th:href="@{/home}" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#services">Services</a></li>
+                            <li class="scroll-to-section"><a href="#courses">Courses</a></li>
+                            <li class="has-sub">
+                                <a href="javascript:void(0)">Pages</a>
+                                <ul class="sub-menu">
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="our-services.html">Our Services</a></li>
+                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
+                            <li class="has-sub">
+                                <i class="fa-solid fa-user" style="color: white">
+                                    <ul class="sub-menu">
+                                        <p th:if="${session.CSys}!=null">
+                                            <li><a th:href="@{/profile}">My Account</a></li>
+                                            <li><a th:href="@{/logout}">Log out</a></li>
+                                        </p>
+                                        <p th:if="${session.CSys}==null">
+                                            <li><a th:href="@{/login}">Log in</a></li>
+                                        </p>
+                                    </ul>
+                                </i>
+                            </li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 filter">
+                <form action="search">
+                    <h3>Filter Course</h3>
+                    <div class="option"><input type="checkbox"> A<br></div>
+                    <div class="option"><input type="checkbox"> A<br></div>
+                    <div class="option"><input type="checkbox"> A<br></div>
+                    <div class="option"><input type="checkbox"> A<br></div>
+                    <div class="option"><input type="checkbox"> A<br></div>
+                    <div class="option"><input type="checkbox"> A<br></div>
+                    <div class="option"><input type="checkbox"> A<br></div>
+                    <div class="option"><input type="checkbox"> A<br></div>
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+            <div class="col-md-9 content">
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>CSI104</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>CEA201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>SWE302</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>SWP391</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>SSG104</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>WED201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>WED201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>WED201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>WED201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <br>
+                <div style="margin-left: 175px; font-size: 30px;">Want to see more? <a href="#">Click here to show all
+                        available course!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <ul class="social-icons">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+          </ul>
+        <h4 style="text-align: center; color: white; margin-top: 20px;">Property of Group 6 SWP391</h4>
+    </div>
+</body>
