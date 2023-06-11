@@ -1,0 +1,85 @@
+.container{
+    margin: 0;
+    padding: 0;
+    max-width: 5000px;
+}
+.background-header {
+    background: rgb(219, 138, 222) !important;
+    background: linear-gradient(-145deg, rgba(219, 138, 222, 1) 0%, rgba(246, 191, 159, 1) 100%) !important;
+    height: 80px !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
+}
+
+.header-area {
+    background-image: url(../images/header-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.main-nav {
+    margin: 0 250px;
+}
+.container-fluid{
+    margin-top: 50px;
+}
+.filter{
+    margin-left: 50px;
+}
+.option{
+    margin: 20px 0;
+}
+.content{
+    text-align: center;
+}
+.content :last-child{
+    text-align: left;
+}
+.display{
+    display: inline-block;
+    margin: 0 50px;
+    margin-bottom: 50px;
+    width: 20%;
+}
+.display h4{
+    text-align: center;
+}
+.footer{
+    background-color: #d69fd5;
+    height: 150px;
+}
+.social-icons li {
+    display: inline-block;
+    margin: 0px 20px;
+    margin-top: 50px;
+  }
+  
+.social-icons {
+    text-align: center;
+    margin-top: 200px;
+  }
+  
+.social-icons li a {
+    width: 44px;
+    height: 44px;
+    display: inline-block;
+    text-align: center;
+    line-height: 44px;
+    background-color: #fff;
+    color: #dc8cdb;
+    border-radius: 50%;
+    transition: all .5s;
+  }
+  
+.social-icons li a:hover {
+    background-color: #dc8cdb;
+    color: #fff;
+  }
