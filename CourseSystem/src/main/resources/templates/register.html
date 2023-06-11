@@ -70,8 +70,8 @@
 </header>
 <!-- ***** Header Area End ***** -->
 <div class="center">
-    <h1>Registration</h1>
     <br>
+    <h1>Registration</h1>
     <div th:if="${param.success}">
         <p>You have been registered successfully.</p>
     </div>
@@ -85,42 +85,55 @@
             Username has been used by another account.
         </p>
     </div>
-    <br>
     <form method="post"
           role="form"
           th:action="@{/registration/save}"
           th:object="${system_account}"
     >
-        <label>UserName</label>
+    <div class="txt_field">
         <input
                 type="text"
                 id="username"
                 name="username"
-                placeholder="Enter username"
                 th:field="*{accountName}"
-        /></br>
-        <label>Email</label>
+                required
+        />
+        <span></span>
+        <label>Enter username</label>
+    </div>
+    <div class="txt_field">
         <input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter email address"
                 th:field="*{gmail}"
-        /></br>
-        <label>Password</label>
+                required
+        />
+        <span></span>
+        <label>Enter email address</label>
+    </div>
+    <div class="txt_field">
         <input
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Enter password"
                 th:field="*{accountPassword}"
-        /></br>
+                required
+        />
+        <span></span>
+        <label>Enter password</label>
+    </div>
+    <div class="txt_field">
         <input
                 type="password"
                 id="confirm"
                 name="confirm"
-                placeholder="Confirm password"
-        /></br>
+                required
+        />
+        <span></span>
+        <label>Confirm password</label>
+    </div>
+        <label>Assign as: </label>
         <select
                 id="role"
                 name="role"
@@ -129,8 +142,7 @@
             <option value=1>STUDENT</option>
             <option value=2>EXPERT</option>
         </select>
-        <label>Assign as: </label>
-        <button type="submit">Register</button>
+        <input type="submit" value="Login">
         <span> Already registered ?
             <a th:href="@{/login}">Login here</a>
         </span>
