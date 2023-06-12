@@ -32,6 +32,7 @@
     margin-top: 50px;
 }
 .filter{
+    position: fixed;
     margin-left: 50px;
 }
 .option{
