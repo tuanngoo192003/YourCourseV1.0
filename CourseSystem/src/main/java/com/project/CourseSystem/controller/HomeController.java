@@ -5,6 +5,7 @@ import com.project.CourseSystem.service.AccountService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,10 +31,13 @@ public class HomeController {
                           Model model){
         HttpSession session = request.getSession();
         SystemAccountDTO system_accountDTO1 = accountService.findUser(system_accountDTO.getAccountName(), system_accountDTO.getAccountPassword());
+
         if(system_accountDTO1 != null){
             String check = system_accountDTO.getAccountPassword();
-            if(check.equals(system_accountDTO1.getAccountPassword())){
-                //HttpSession session = request.getSession();
+            //decrypt password
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            if(passwordEncoder.matches(check, system_accountDTO1.getAccountPassword())){
+
                 session.setAttribute("CSys", system_accountDTO1.getAccountName());
                 return "/home";
             }

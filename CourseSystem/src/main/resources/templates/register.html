@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org"
 >
 <head>
     <meta charset="UTF-8">
@@ -85,9 +85,17 @@
             Username has been used by another account.
         </p>
     </div>
+<!-- Updated upstream-->
+    <div th:if="${param.dontExistGmail}">
+        <p>
+            Gmail does not exist.
+        </p>
+    </div>
+    <br>
+<!-- Stashed changes-->
     <form method="post"
           role="form"
-          th:action="@{/registration/save}"
+          th:action="@{/regisGmailConfirmation}"
           th:object="${system_account}"
     >
     <div class="txt_field">
@@ -148,23 +156,23 @@
         </span>
     </form>
 </div>
-    <script>
-        var password = document.getElementById("password")
-            , confirm_password = document.getElementById("confirm");
+<script>
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm");
 
-        function validatePassword(){
-            if(password.value == null) {
-                password.setCustomValidity("This field should not be empty");
-            }
-            if(password.value != confirm_password.value ){
-                confirm_password.setCustomValidity("Passwords Don't Match");
-            }
-            else {
-                confirm_password.setCustomValidity('');
-            }
+    function validatePassword(){
+        if(password.value == null) {
+            password.setCustomValidity("This field should not be empty");
         }
-        password.onchange = validatePassword;
-        confirm_password.onkeyup = validatePassword;
-    </script>
+        if(password.value != confirm_password.value ){
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        }
+        else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
 </body>
 </html>

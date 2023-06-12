@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -72,10 +73,14 @@ public class UserController {
         HttpSession session = request.getSession();
         String accountName = (String) session.getAttribute("CSys");
         SystemAccountDTO systemAccountDTO1 = accountService.findUserByAccountName(accountName);
-        if(systemAccountDTO1.getAccountPassword().equals(oldPassword)){
+        //decrypt password and matches with old password
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if(passwordEncoder.matches(oldPassword, systemAccountDTO1.getAccountPassword())){
             String new_password = system_accountDTO.getAccountPassword();
             system_accountDTO = accountService.findUser(accountName, system_accountDTO.getAccountPassword());
-            system_accountDTO.setAccountPassword(new_password);
+            //encrypt password
+            String encodedPassword = passwordEncoder.encode(new_password);
+            system_accountDTO.setAccountPassword(encodedPassword);
             accountService.updateUser(system_accountDTO);
             session.removeAttribute("CSys");
             return "login";

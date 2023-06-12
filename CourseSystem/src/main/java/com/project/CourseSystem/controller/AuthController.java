@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -70,34 +71,6 @@ public class AuthController {
         return "register";
     }
 
-    //handler method to handler user registration form submit request
-    @PostMapping("/registration/save")
-    public String register(@ModelAttribute("system_account") SystemAccountDTO system_accountDTO, Model model
-            , HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttributes){
-        //check if gmail exist
-        if(accountService.isGmailExist(system_accountDTO.getGmail())){
-            return "redirect:/registration?errorGmail";
-        }
-        else if(accountService.isUsernameExist(system_accountDTO.getAccountName())){
-            return "redirect:/registration?errorUsername";
-        }
-        else{
-            //save user
-            accountService.saveUser(system_accountDTO);
-            //get account
-            SystemAccountDTO systemAccountDTO1 = new SystemAccountDTO();
-            systemAccountDTO1 = accountService.findUserByAccountName(system_accountDTO.getAccountName());
-            //add userInfo
-            UserInfoDTO userInfoDTO1 = new UserInfoDTO();
-            SystemAccount systemAccount = system_accountConverter.convertDTOToEntity(systemAccountDTO1);
-            userInfoDTO1.setAccountID(systemAccount);
-            userService.saveUser(userInfoConverter.convertDtoToEntity(userInfoDTO1));
-            HttpSession session = request.getSession();
-
-            return "redirect:/registration?success";
-        }
-    }
-
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
@@ -122,7 +95,9 @@ public class AuthController {
     public String savePassword(@ModelAttribute("system_account") SystemAccountDTO system_accountDTO, Model model
             , HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
-        String new_password = system_accountDTO.getAccountPassword();
+        //encrypt password
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String new_password = passwordEncoder.encode(system_accountDTO.getAccountPassword());
         String account_name = (String) session.getAttribute("CSys");
         system_accountDTO = accountService.findUser(account_name, system_accountDTO.getAccountPassword());
         system_accountDTO.setAccountPassword(new_password);
