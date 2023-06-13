@@ -56,4 +56,6 @@ public class CourseController {
         model.addAttribute("courseBelongToCapstone", courseService.getAllCoursesByCapstoneID(id));
         return "capstoneDetails";
     }
+
+
 }

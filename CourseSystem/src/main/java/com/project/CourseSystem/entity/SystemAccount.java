@@ -22,7 +22,7 @@ public class SystemAccount {
     @Column(name="accountName", nullable = false, length = 30)
     private String accountName;
 
-    @Column(name="accountPassword", nullable = false, length = 20)
+    @Column(name="accountPassword", nullable = false, length = 200)
     private String accountPassword;
 
     @Email
