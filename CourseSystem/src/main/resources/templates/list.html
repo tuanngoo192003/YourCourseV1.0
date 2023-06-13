@@ -84,7 +84,76 @@
                     <input type="submit" value="Search">
                 </form>
             </div>
-            <div class="col-md-9 content">
+            <div class="col-md-9 content" th:if="${courseList}!=null">
+                <div class="col-md-3 display"
+                     th:each="courseList, state: ${courseList}"
+                >
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4 th:text="${courseList.courseName}"></h4>
+                    <p th:text="${courseList.courseDes}"></p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>CEA201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>SWE302</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>SWP391</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>SSG104</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>WED201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>WED201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>WED201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <div class="col-md-3 display">
+                    <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
+                    <h4>WED201</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the
+                        industry's standard dummy text ever since...</p>
+                </div>
+                <br>
+                <div style="margin-left: 175px; font-size: 30px;">Want to see more? <a href="#">Click here to show all
+                        available course!</a>
+                </div>
+            </div>
+            <div class="col-md-9 content" th:if="${capstoneList}!=null">
                 <div class="col-md-3 display">
                     <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
                     <h4>CSI104</h4>
@@ -150,7 +219,7 @@
                 </div>
                 <br>
                 <div style="margin-left: 175px; font-size: 30px;">Want to see more? <a href="#">Click here to show all
-                        available course!</a>
+                    available course!</a>
                 </div>
             </div>
         </div>
