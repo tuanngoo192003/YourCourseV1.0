@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{assets/css/loginStyle.css}">
+    <link rel="stylesheet" th:href="@{assets/css/register.css}">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -69,7 +69,7 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-<div class="center" style=" z-index: 4">
+<div class="center" style=" z-index: 4; overflow-y:scroll;">
     <h1>Registration</h1>
     <div th:if="${param.success}">
         <p>You have been registered successfully.</p>
@@ -149,8 +149,11 @@
         >
             <option value=1>STUDENT</option>
             <option value=2>EXPERT</option>
-        </select>
-        <input type="submit" value="Register">
+        </select></br>
+        <input type="checkbox" name="policy" id="policy" onclick="validate()">
+        By selecting "Register", you are confirming that you have read and agree
+            with our <a th:href="@{/policy}">Private Policy</a>
+        <input type="submit" value="Register" style="margin-top: 10px; margin-bottom: 10px">
         <span> Already registered ?
             <a th:href="@{/login}">Login here</a>
         </span>
@@ -214,6 +217,14 @@
     }
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
+
+    function validate(){
+        if (policy.checked == 1){
+            return true;
+        } else {
+            alert("You have to agree with our Private Policy");
+        }
+    }
 </script>
 </body>
 </html>
