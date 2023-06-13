@@ -106,5 +106,8 @@ public class AuthController {
         return "redirect:/login";
     }
 
-
+    @GetMapping("/policy")
+    public String policy(){
+        return "policy";
+    }
 }
