@@ -29,7 +29,7 @@ public class CourseController {
         return "list";
     }
 
-    @GetMapping("/courseDetails")
+    /*@GetMapping("/courseDetails")
     public String getCourseDetails(@RequestParam Integer courseID, Model model,
                                    HttpServletRequest request, HttpServletResponse response) {
         if(courseID == null) {
@@ -38,7 +38,7 @@ public class CourseController {
         int id = courseID.intValue();
         model.addAttribute("course", courseService.getCourseByID(id));
         return "courseDetails";
-    }
+    }*/
 
     @GetMapping("/capstone")
     public String getCapstone(Model model, HttpServletRequest request, HttpServletResponse response) {
@@ -55,5 +55,9 @@ public class CourseController {
         int id = capstoneID.intValue();
         model.addAttribute("courseBelongToCapstone", courseService.getAllCoursesByCapstoneID(id));
         return "capstoneDetails";
+    }
+    @GetMapping("/courseDetails")
+    public String courseDetails(){
+        return "courseDetails";
     }
 }
