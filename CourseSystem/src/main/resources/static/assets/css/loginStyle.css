@@ -744,8 +744,8 @@ section.main-banner {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25%;
-    height: 60%;
+    width: 40%;
+    height: 70%;
     background: white;
     border-radius: 10px;
     border: cornflowerblue solid 3px;
