@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{assets/css/loginStyle.css}">
+    <link rel="stylesheet" th:href="@{assets/css/register.css}">
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -69,8 +69,7 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-<div class="center">
-    <br>
+<div class="center" style=" z-index: 4; overflow-y:scroll;">
     <h1>Registration</h1>
     <div th:if="${param.success}">
         <p>You have been registered successfully.</p>
@@ -150,13 +149,57 @@
         >
             <option value=1>STUDENT</option>
             <option value=2>EXPERT</option>
-        </select>
-        <input type="submit" value="Register">
+        </select></br>
+        <input type="checkbox" name="policy" id="policy" onclick="validate()">
+        By selecting "Register", you are confirming that you have read and agree
+            with our <a th:href="@{/policy}">Private Policy</a>
+        <input type="submit" value="Register" style="margin-top: 10px; margin-bottom: 10px">
         <span> Already registered ?
             <a th:href="@{/login}">Login here</a>
         </span>
     </form>
 </div>
+
+<section class="contact-us" id="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div id="map">
+
+                    <!-- You just need to go to Google Maps for your own map point, and copy the embed code from Share -> Embed a map section -->
+                    <iframe width="100%" height="420px"  style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
+
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-12">
+                <p class="copyright">Copyright © 2022 EduWell Co., Ltd. All Rights Reserved.
+
+                    <br>Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/owl-carousel.js"></script>
+<script src="assets/js/lightbox.js"></script>
+<script src="assets/js/tabs.js"></script>
+<script src="assets/js/video.js"></script>
+<script src="assets/js/slick-slider.js"></script>
+<script src="assets/js/custom.js"></script>
 <script>
     var password = document.getElementById("password")
         , confirm_password = document.getElementById("confirm");
@@ -174,6 +217,14 @@
     }
     password.onchange = validatePassword;
     confirm_password.onkeyup = validatePassword;
+
+    function validate(){
+        if (policy.checked == 1){
+            return true;
+        } else {
+            alert("You have to agree with our Private Policy");
+        }
+    }
 </script>
 </body>
 </html>

@@ -13,14 +13,14 @@
   <title>EduWell - Education HTML5 Template</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
 
   <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
-  <link rel="stylesheet" href="assets/css/owl.css">
-  <link rel="stylesheet" href="assets/css/lightbox.css">
+  <link rel="stylesheet" th:href="@{assets/css/fontawesome.css}">
+  <link rel="stylesheet" th:href="@{assets/css/templatemo-eduwell-style.css}">
+  <link rel="stylesheet" th:href="@{assets/css/owl.css}">
+  <link rel="stylesheet" th:href="@{assets/css/lightbox.css}">
   <!--
 
   TemplateMo 573 EduWell
@@ -99,7 +99,7 @@
       </div>
       <div class="col-lg-6">
         <div class="right-image">
-          <img src="assets/images/banner-right-image.png" alt="">
+          <img alt="" th:src="@{assets/images/banner-right-image.png}">
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@
           <div class="item">
             <div class="service-item">
               <div class="icon">
-                <img src="assets/images/service-icon-01.png" alt="">
+                <img th:src="@{assets/images/service-icon-01.png}" alt="">
               </div>
               <h4>Useful Tricks</h4>
               <p>EduWell is the professional HTML5 template for your school or university websites.</p>
@@ -130,7 +130,7 @@
           <div class="item">
             <div class="service-item">
               <div class="icon">
-                <img src="assets/images/service-icon-02.png" alt="">
+                <img th:src="@{assets/images/service-icon-02.png}" alt="">
               </div>
               <h4>Creative Ideas</h4>
               <p>You can download and use this EduWell Template for your teaching and learning stuffs.</p>
@@ -139,7 +139,7 @@
           <div class="item">
             <div class="service-item">
               <div class="icon">
-                <img src="assets/images/service-icon-03.png" alt="">
+                <img th:src="@{assets/images/service-icon-03.png}" alt="">
               </div>
               <h4>Ready Target</h4>
               <p>Please tell your friends about the best CSS template website that is TemplateMo.</p>
@@ -148,7 +148,7 @@
           <div class="item">
             <div class="service-item">
               <div class="icon">
-                <img src="assets/images/service-icon-04.png" alt="">
+                <img th:src="@{assets/images/service-icon-04.png}" alt="">
               </div>
               <h4>Technology</h4>
               <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
@@ -157,7 +157,7 @@
           <div class="item">
             <div class="service-item">
               <div class="icon">
-                <img src="assets/images/service-icon-01.png" alt="">
+                <img th:src="@{assets/images/service-icon-01.png}" alt="">
               </div>
               <h4>Useful Tricks</h4>
               <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
@@ -166,7 +166,7 @@
           <div class="item">
             <div class="service-item">
               <div class="icon">
-                <img src="assets/images/service-icon-02.png" alt="">
+                <img th:src="@{assets/images/service-icon-02.png}" alt="">
               </div>
               <h4>Creative Ideas</h4>
               <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
@@ -175,7 +175,7 @@
           <div class="item">
             <div class="service-item">
               <div class="icon">
-                <img src="assets/images/service-icon-03.png" alt="">
+                <img th:src="@{assets/images/service-icon-03.png}" alt="">
               </div>
               <h4>Ready Target</h4>
               <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
@@ -184,7 +184,7 @@
           <div class="item">
             <div class="service-item">
               <div class="icon">
-                <img src="assets/images/service-icon-04.png" alt="">
+                <img th:src="@{assets/images/service-icon-04.png}" alt="">
               </div>
               <h4>Technology</h4>
               <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
@@ -431,7 +431,7 @@
         <div id="map">
 
           <!-- You just need to go to Google Maps for your own map point, and copy the embed code from Share -> Embed a map section -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7151.84524236698!2d-122.19494600413192!3d47.56605883252286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490695e625f8965%3A0xf99b055e76477def!2sNewcastle%20Beach%20Park%20Playground%2C%20Bellevue%2C%20WA%2098006%2C%20USA!5e0!3m2!1sen!2sth!4v1644335269264!5m2!1sen!2sth" width="100%" height="420px" frameborder="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.485534710306!2d105.52448401082383!3d21.013249980551397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345b465a4e65fb%3A0xaae6040cfabe8fe!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBGUFQ!5e0!3m2!1svi!2s!4v1686668274166!5m2!1svi!2s"  width="100%" height="420px" frameborder="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
           <div class="row">
             <div class="col-lg-4 offset-lg-1">
               <div class="contact-info">
@@ -439,7 +439,7 @@
                   <i class="fa fa-phone"></i>
                 </div>
                 <h4>Phone</h4>
-                <span>010-020-0340</span>
+                <span>039-391-0645</span>
               </div>
             </div>
             <div class="col-lg-4">
