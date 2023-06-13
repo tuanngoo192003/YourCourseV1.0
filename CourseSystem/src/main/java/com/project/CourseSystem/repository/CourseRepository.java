@@ -11,4 +11,7 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
 
     @Query(value = "SELECT * FROM Course WHERE capstoneID = ?1", nativeQuery = true)
     List<Course> getAllByCapstoneID(int capstoneID);
+
+    @Query(value = "SELECT * FROM Course WHERE categoryID = ?1", nativeQuery = true)
+    List<Course> getAllByCategoryID(int categoryID);
 }

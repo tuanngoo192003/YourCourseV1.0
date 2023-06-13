@@ -71,13 +71,12 @@
 <!-- ***** Header Area End ***** -->
     <div class="container-fluid" style="margin-left: 20px">
         <div class="row">
-                <form class="col-md-2 filter" action="search">
+                <form class="col-md-2 filter" method="post" role="form" th:action="@{/filter}" th:object="${categoryDTO}">
                     <h3>Category</h3>
-                    <div class="option"><input type="checkbox"> Language<br></div>
-                    <div class="option"><input type="checkbox"> Web development<br></div>
-                    <div class="option"><input type="checkbox"> Web design<br></div>
-                    <div class="option"><input type="checkbox"> IT Fundamental<br></div>
-                    <div class="option"><input type="checkbox"> Mathematics<br></div>
+                    <div th:each="category, state: ${category}">
+                        <div class="option"><input type="checkbox" th:value="${category.categoryName}" th:field="*{categoryName}"><p th:text="${category.categoryName}"></p><br></div>
+                    </div>
+
                     <input type="submit" value="Search">
                 </form>
             <div class="col-md-9 courseList" th:if="${courseList}!=null">
