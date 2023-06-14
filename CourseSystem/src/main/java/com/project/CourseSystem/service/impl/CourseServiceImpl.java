@@ -44,4 +44,12 @@ public class CourseServiceImpl implements CourseService {
         CourseDTO courseDTO = courseConverter.convertEntityToDTO(courseRepository.findById(id).get());
         return courseDTO;
     }
+
+    @Override
+    public List<CourseDTO> getAllCoursesByCategoryID(int categoryID) {
+        List<CourseDTO> courseList = new ArrayList<>();
+        courseRepository.getAllByCategoryID(categoryID).forEach(course ->
+                courseList.add(courseConverter.convertEntityToDTO(course)));
+        return courseList;
+    }
 }

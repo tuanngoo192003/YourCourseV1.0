@@ -11,4 +11,6 @@ public interface CourseService {
     List<CourseDTO> getAllCoursesByCapstoneID(int capstoneID);
 
     CourseDTO getCourseByID(int id);
+
+    List<CourseDTO> getAllCoursesByCategoryID(int categoryID);
 }
