@@ -13,6 +13,7 @@ public class CourseConverter {
         courseDTO.setCourseName(course.getCourseName());
         courseDTO.setCourseDes(course.getCourseDes());
         courseDTO.setCreatedDate(course.getCreatedDate());
+        courseDTO.setCourseImage(course.getCourseImage());
         courseDTO.setPrice(course.getPrice());
         courseDTO.setCategoryID(course.getCategoryID());
         courseDTO.setCapstoneID(course.getCapstoneID());
@@ -26,6 +27,7 @@ public class CourseConverter {
         course.setCourseName(courseDTO.getCourseName());
         course.setCourseDes(courseDTO.getCourseDes());
         course.setCreatedDate(courseDTO.getCreatedDate());
+        course.setCourseImage(courseDTO.getCourseImage());
         course.setPrice(courseDTO.getPrice());
         course.setCategoryID(courseDTO.getCategoryID());
         course.setCapstoneID(courseDTO.getCapstoneID());
