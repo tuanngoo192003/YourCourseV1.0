@@ -33,4 +33,8 @@ public class Discount {
     @OneToMany
     @JoinColumn(name="paymentID", nullable = true)
     private Set<Payment> paymentID;
+
+    @ManyToOne
+    @JoinColumn(name="userID", nullable = false)
+    private UserInfo userID;
 }

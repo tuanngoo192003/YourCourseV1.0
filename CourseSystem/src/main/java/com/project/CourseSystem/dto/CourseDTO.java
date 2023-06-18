@@ -25,6 +25,10 @@ public class CourseDTO {
 
     private Date createdDate;
 
+    private Date startDate;
+
+    private Date endDate;
+
     private Float price;
 
     private Category categoryID;
