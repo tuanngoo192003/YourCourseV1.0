@@ -744,7 +744,22 @@ section.main-banner {
 }
 
 /* policy css start here */
+.policy{
+    align-content: center;
+}
 
+.policy h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #adb5bd;
+}
+
+.policy li{
+    list-style-type: circle;
+}
 
 /* policy css end here */
 
