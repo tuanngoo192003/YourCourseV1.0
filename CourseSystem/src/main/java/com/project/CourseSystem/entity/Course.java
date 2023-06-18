@@ -32,6 +32,12 @@ public class Course {
     @Column(name="createdDate", nullable = false)
     private Date createdDate;
 
+    @Column(name="startDate", nullable = false)
+    private Date startDate;
+
+    @Column(name="endDate", nullable = false)
+    private Date endDate;
+
     @Column(name="price", nullable = false)
     private Float price;
 
@@ -39,9 +45,12 @@ public class Course {
     @JoinColumn(name="categoryID", nullable = false)
     private Category categoryID;
 
-    @ManyToOne
-    @JoinColumn(name="capstoneID", nullable = true)
-    private Capstone capstoneID;
+    @ManyToMany
+    @JoinTable(
+            name = "courseCapstone",
+            joinColumns = @JoinColumn(name = "courseID"),
+            inverseJoinColumns = @JoinColumn(name = "capstoneID"))
+    private Set<Capstone> capstoneID;
 
     @ManyToMany
     @JoinTable(
