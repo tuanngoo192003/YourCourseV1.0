@@ -1,9 +1,12 @@
 package com.project.CourseSystem.controller;
 
 import com.project.CourseSystem.converter.UserInfoConverter;
+import com.project.CourseSystem.dto.CategoryDTO;
+import com.project.CourseSystem.dto.CourseDTO;
 import com.project.CourseSystem.dto.SystemAccountDTO;
 import com.project.CourseSystem.entity.UserInfo;
 import com.project.CourseSystem.service.AccountService;
+import com.project.CourseSystem.service.CategoryService;
 import com.project.CourseSystem.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,13 +30,17 @@ public class UserController {
 
     private UserInfoConverter userInfoConverter;
 
+    private CategoryService categoryService;
+
     public UserController(SystemAccountDTO systemAccountDTO, UserService userService,
                           AccountService accountService,
-                          UserInfoConverter userInfoConverter){
+                          UserInfoConverter userInfoConverter,
+                          CategoryService categoryService){
         this.systemAccountDTO = systemAccountDTO;
         this.userService = userService;
         this.accountService = accountService;
         this.userInfoConverter = userInfoConverter;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/profile")
@@ -44,6 +51,11 @@ public class UserController {
             return "login";
         }
         else{
+            CategoryDTO cDto = new CategoryDTO();
+            model.addAttribute("categoryDTO", cDto);
+            CourseDTO courseDTO = new CourseDTO();
+            model.addAttribute("courseDTO", courseDTO);
+            model.addAttribute("category", categoryService.getAllCategories());
             String accountName = (String) session.getAttribute("CSys");
             SystemAccountDTO systemAccountDTO = accountService.findUserByAccountName(accountName);
             UserInfo userInfo = userService.findUser(systemAccountDTO.getAccountID());
@@ -91,4 +103,5 @@ public class UserController {
             return "redirect:/profile?error=Old password is incorrect";
         }
     }
+
 }

@@ -1,13 +1,9 @@
 package com.project.CourseSystem.dto;
 
-import com.project.CourseSystem.entity.Capstone;
 import com.project.CourseSystem.entity.Category;
-import com.project.CourseSystem.entity.SystemAccount;
-import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
-import java.util.Set;
 
 @Setter
 @Getter
@@ -33,5 +29,4 @@ public class CourseDTO {
 
     private Category categoryID;
 
-    private Capstone capstoneID;
 }

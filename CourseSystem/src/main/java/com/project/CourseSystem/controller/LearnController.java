@@ -1,11 +1,13 @@
 package com.project.CourseSystem.controller;
 
+import com.project.CourseSystem.dto.CategoryDTO;
 import com.project.CourseSystem.dto.CourseDTO;
 import com.project.CourseSystem.dto.LessonDTO;
 import com.project.CourseSystem.dto.QuizDTO;
 import com.project.CourseSystem.entity.Course;
 import com.project.CourseSystem.entity.Lesson;
 import com.project.CourseSystem.entity.Quiz;
+import com.project.CourseSystem.service.CategoryService;
 import com.project.CourseSystem.service.CourseService;
 import com.project.CourseSystem.service.LessonService;
 import com.project.CourseSystem.service.QuizService;
@@ -29,10 +31,14 @@ public class LearnController {
 
     private LessonService lessonService;
 
-    private LearnController(LessonService lessonService, QuizService quizService, CourseService courseService) {
+    private CategoryService categoryService;;
+
+    private LearnController(LessonService lessonService, QuizService quizService, CourseService courseService
+    , CategoryService categoryService) {
         this.lessonService = lessonService;
         this.quizService = quizService;
         this.courseService = courseService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/learn")
@@ -51,6 +57,11 @@ public class LearnController {
             for (LessonDTO lesson : lessonList) {
                 quizList.add(quizService.getAllByLessonID(lesson.getLessonID()));
             }
+            CategoryDTO cDto = new CategoryDTO();
+            model.addAttribute("categoryDTO", cDto);
+            CourseDTO courseDTO = new CourseDTO();
+            model.addAttribute("courseDTO", courseDTO);
+            model.addAttribute("category", categoryService.getAllCategories());
             model.addAttribute("course", course);
             model.addAttribute("lessonList", lessonList);
             model.addAttribute("quizList", quizList);

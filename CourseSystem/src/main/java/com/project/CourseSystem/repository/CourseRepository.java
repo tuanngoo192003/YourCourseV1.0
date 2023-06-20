@@ -14,4 +14,7 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
 
     @Query(value = "SELECT * FROM Course WHERE categoryID = ?1", nativeQuery = true)
     List<Course> getAllByCategoryID(int categoryID);
+
+    @Query(value = "SELECT * FROM Course WHERE course_name LIKE %?1%", nativeQuery = true)
+    List<Course> getAllByCourseNameContaining(String courseName);
 }

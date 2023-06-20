@@ -17,57 +17,73 @@
     <title>Learn</title>
 </head>
 <body>
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <nav class="main-nav">
-          <!-- ***** Logo Start ***** -->
-          <a th:href="@{/home}" class="logo">
-            <p style="margin-top: 40px; color: white">YourCourse</p>
-            <!--<img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">-->
-          </a>
-          <!-- ***** Logo End ***** -->
-          <!-- ***** Menu Start ***** -->
-          <ul class="nav">
-            <li class="scroll-to-section"><a th:href="@{/home}" class="active">Home</a></li>
-            <li class="scroll-to-section"><a href="#services">Services</a></li>
-            <li class="scroll-to-section"><a href="#courses">Courses</a></li>
-            <li class="has-sub">
-              <a href="javascript:void(0)">Pages</a>
-              <ul class="sub-menu">
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="our-services.html">Our Services</a></li>
-                <li><a href="contact-us.html">Contact Us</a></li>
-              </ul>
-            </li>
-            <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li>
-            <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
-            <li class="has-sub">
-              <i class="fa-solid fa-user" style="color: white">
-                <ul class="sub-menu">
-                  <p th:if="${session.CSys}!=null">
-                  <li><a th:href="@{/profile}">My Account</a></li>
-                  <li><a th:href="@{/logout}">Log out</a></li>
-                  </p>
-                  <p th:if="${session.CSys}==null">
-                  <li><a th:href="@{/login}">Log in</a></li>
-                  </p>
-                </ul>
-              </i>
-            </li>
-          </ul>
-          <a class='menu-trigger'>
-            <span>Menu</span>
-          </a>
-          <!-- ***** Menu End ***** -->
-        </nav>
-      </div>
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a th:href="@{/home}" class="logo">
+                        <p style="margin-top: 40px; color: white">YourCourse</p>
+                        <!--<img src="assets/images/templatemo-eduwell.png" alt="EduWell Template">-->
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <form
+                                role="form"
+                                method="post"
+                                th:action="@{/search}"
+                                th:object="${courseDTO}"
+                        >
+                            <input type="text" th:field="*{courseName}" placeholder="Search.." style="opacity: 0.5; border-radius: 7px">
+                        </form>
+                        <li class="has-sub">
+                            <a>Category</a>
+                            <ul class="sub-menu">
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=1)}">Language Learning</a></li>
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=2)}">Web development</a></li>
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=3)}">Web design</a></li>
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=4)}">IT Fundamental</a></li>
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=5)}">Mathematics</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="#services">Services</a></li>
+                        <li><a th:href="@{/course}">Courses</a></li>
+                        <li class="has-sub">
+                            <a href="javascript:void(0)">Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="our-services.html">Our Services</a></li>
+                                <li><a href="contact-us.html">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
+                        <li class="has-sub">
+                            <i class="fa-solid fa-user" style="color: white">
+                                <ul class="sub-menu">
+                                    <p th:if="${session.CSys}!=null">
+                                    <li><a th:href="@{/profile}">My Account</a></li>
+                                    <li><a th:href="@{/logout}">Log out</a></li>
+                                    </p>
+                                    <p th:if="${session.CSys}==null">
+                                    <li><a th:href="@{/login}">Log in</a></li>
+                                    </p>
+                                </ul>
+                            </i>
+                        </li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
-  <!-- ***** Header Area End ***** -->
+<!-- ***** Header Area End ***** -->
   <section class="py-5 my-5">
       <div class="container-fluid">
           <div class="bg-white shadow rounded-lg d-block d-sm-flex">

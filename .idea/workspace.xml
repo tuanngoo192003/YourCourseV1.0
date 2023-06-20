@@ -4,14 +4,73 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e87a86b9-bebd-4fde-912b-d20f769ef255" name="Changes" comment="" />
+    <list default="true" id="e87a86b9-bebd-4fde-912b-d20f769ef255" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/RatingCourseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/QuizRevision.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/RatingCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/policy.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/images/bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/config/WebSpringSecurity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/LearnController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/LearnController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CapstoneConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CourseConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CourseConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CapstoneDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/DiscountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/DiscountDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Capstone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Discount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Notification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Quiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CapstoneRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CourseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/DiscountRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/NotificationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CapstoneService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CapstoneServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/Homepage_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/courseListStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/courseListStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/templatemo-eduwell-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/your-course.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/capstoneDetails.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/learn.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/learn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/policy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/resetPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/resetPassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/userProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/userProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/system.properties" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/CourseSystem" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -25,26 +84,36 @@
     </option>
   </component>
   <component name="ProjectId" id="2REFC74EJmYVdXEcedYKQgrYvNH" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;318b10dff6c223d653f9b71db17482b5&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/84393/Downloads/demo123 (1)/demo123",
+    "spring.configuration.checksum": "318b10dff6c223d653f9b71db17482b5"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\84393\OneDrive\Tài liệu\GitHub\YourCourseV1.0\CourseSystem\src\main\resources\static\assets\images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CourseSystemApplication">
+    <configuration name="backgroundPage.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/compiler.xml/CourseSystem/templates/backgroundPage.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="CourseSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="CourseSystem" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.CourseSystem.CourseSystemApplication" />
@@ -52,6 +121,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.backgroundPage.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,6 +138,9 @@
       <workItem from="1686807210067" duration="565000" />
       <workItem from="1686807792496" duration="62000" />
       <workItem from="1686807915135" duration="409000" />
+      <workItem from="1687188739811" duration="2859000" />
+      <workItem from="1687241435572" duration="701000" />
+      <workItem from="1687242150810" duration="23228000" />
     </task>
     <servers />
   </component>
@@ -83,5 +160,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

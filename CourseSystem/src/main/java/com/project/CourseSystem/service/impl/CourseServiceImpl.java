@@ -6,6 +6,9 @@ import com.project.CourseSystem.entity.Course;
 import com.project.CourseSystem.repository.CourseRepository;
 import com.project.CourseSystem.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -32,14 +35,6 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public List<CourseDTO> getAllCoursesByCapstoneID(int capstoneID) {
-        List<CourseDTO> courseList = new ArrayList<>();
-        courseRepository.getAllByCapstoneID(capstoneID).forEach(course ->
-                courseList.add(courseConverter.convertEntityToDTO(course)));
-        return courseList;
-    }
-
-    @Override
     public CourseDTO getCourseByID(int id) {
         CourseDTO courseDTO = courseConverter.convertEntityToDTO(courseRepository.findById(id).get());
         return courseDTO;
@@ -52,4 +47,21 @@ public class CourseServiceImpl implements CourseService {
                 courseList.add(courseConverter.convertEntityToDTO(course)));
         return courseList;
     }
+
+    @Override
+    public List<CourseDTO> getAllCoursesByCourseNameContaining(String courseName) {
+        List<CourseDTO> courseList = new ArrayList<>();
+        courseRepository.getAllByCourseNameContaining(courseName).forEach(course ->
+                courseList.add(courseConverter.convertEntityToDTO(course)));
+        return courseList;
+    }
+
+    @Override
+    public Page<Course> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
+                Sort.by(sortField).descending();
+        return courseRepository.findAll(PageRequest.of(pageNo - 1, pageSize, sort));
+    }
+
+
 }

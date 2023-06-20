@@ -10,7 +10,7 @@
   <meta name="author" content="">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-  <title>EduWell - Education HTML5 Template</title>
+  <title>YourCourse</title>
 
   <!-- Bootstrap core CSS -->
   <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
@@ -18,14 +18,10 @@
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" th:href="@{assets/css/fontawesome.css}">
-  <link rel="stylesheet" th:href="@{assets/css/templatemo-eduwell-style.css}">
+  <link rel="stylesheet" th:href="@{assets/css/your-course.css}">
   <link rel="stylesheet" th:href="@{assets/css/owl.css}">
   <link rel="stylesheet" th:href="@{assets/css/lightbox.css}">
   <!--
-
-  TemplateMo 573 EduWell
-
-  https://templatemo.com/tm-573-eduwell
 
   -->
 </head>
@@ -46,9 +42,26 @@
           <!-- ***** Logo End ***** -->
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
-            <li class="scroll-to-section"><a th:href="@{/home}" class="active">Home</a></li>
+            <form
+                    role="form"
+                    method="post"
+                    th:action="@{/search}"
+                    th:object="${courseDTO}"
+            >
+              <input type="text" th:field="*{courseName}" placeholder="Search.." style="opacity: 0.5; border-radius: 7px">
+            </form>
+            <li class="has-sub">
+              <a>Category</a>
+              <ul class="sub-menu">
+                <li><a th:href="@{/getCourseByCategoryID(categoryID=1)}">Language Learning</a></li>
+                <li><a th:href="@{/getCourseByCategoryID(categoryID=2)}">Web development</a></li>
+                <li><a th:href="@{/getCourseByCategoryID(categoryID=3)}">Web design</a></li>
+                <li><a th:href="@{/getCourseByCategoryID(categoryID=4)}">IT Fundamental</a></li>
+                <li><a th:href="@{/getCourseByCategoryID(categoryID=5)}">Mathematics</a></li>
+              </ul>
+            </li>
             <li class="scroll-to-section"><a href="#services">Services</a></li>
-            <li class="scroll-to-section"><a href="#courses">Courses</a></li>
+            <li><a th:href="@{/course}">Courses</a></li>
             <li class="has-sub">
               <a href="javascript:void(0)">Pages</a>
               <ul class="sub-menu">
@@ -57,7 +70,6 @@
                 <li><a href="contact-us.html">Contact Us</a></li>
               </ul>
             </li>
-            <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li>
             <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
             <li class="has-sub">
               <i class="fa-solid fa-user" style="color: white">
@@ -90,16 +102,17 @@
     <div class="row">
       <div class="col-lg-6 align-self-center">
         <div class="header-text">
-          <h6>Welcome to our school</h6>
-          <h2>Best Place To Learn Graphic <em>Design!</em></h2>
-          <div class="main-button-gradient">
-            <div class="scroll-to-section"><a href="#contact-section">Join Us Now!</a></div>
+          <h6>Welcome to YourCourse</h6>
+          <div>
+            <h2>Learn <em>Anytime</em> <em>Anywhere</em></h2>
+            <h2>From <span><em>Any Device</em></span></h2>
           </div>
+
         </div>
       </div>
       <div class="col-lg-6">
         <div class="right-image">
-          <img alt="" th:src="@{assets/images/banner-right-image.png}">
+
         </div>
       </div>
     </div>
@@ -124,7 +137,6 @@
                 <img th:src="@{assets/images/service-icon-01.png}" alt="">
               </div>
               <h4>Useful Tricks</h4>
-              <p>EduWell is the professional HTML5 template for your school or university websites.</p>
             </div>
           </div>
           <div class="item">
@@ -133,7 +145,6 @@
                 <img th:src="@{assets/images/service-icon-02.png}" alt="">
               </div>
               <h4>Creative Ideas</h4>
-              <p>You can download and use this EduWell Template for your teaching and learning stuffs.</p>
             </div>
           </div>
           <div class="item">
@@ -142,7 +153,6 @@
                 <img th:src="@{assets/images/service-icon-03.png}" alt="">
               </div>
               <h4>Ready Target</h4>
-              <p>Please tell your friends about the best CSS template website that is TemplateMo.</p>
             </div>
           </div>
           <div class="item">
@@ -151,7 +161,6 @@
                 <img th:src="@{assets/images/service-icon-04.png}" alt="">
               </div>
               <h4>Technology</h4>
-              <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
             </div>
           </div>
           <div class="item">
@@ -160,7 +169,6 @@
                 <img th:src="@{assets/images/service-icon-01.png}" alt="">
               </div>
               <h4>Useful Tricks</h4>
-              <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
             </div>
           </div>
           <div class="item">
@@ -169,7 +177,6 @@
                 <img th:src="@{assets/images/service-icon-02.png}" alt="">
               </div>
               <h4>Creative Ideas</h4>
-              <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
             </div>
           </div>
           <div class="item">
@@ -178,7 +185,6 @@
                 <img th:src="@{assets/images/service-icon-03.png}" alt="">
               </div>
               <h4>Ready Target</h4>
-              <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
             </div>
           </div>
           <div class="item">
@@ -187,7 +193,6 @@
                 <img th:src="@{assets/images/service-icon-04.png}" alt="">
               </div>
               <h4>Technology</h4>
-              <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
             </div>
           </div>
           <div class="item">
@@ -196,7 +201,6 @@
                 <img src="assets/images/service-icon-01.png" alt="">
               </div>
               <h4>Useful Tricks</h4>
-              <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
             </div>
           </div>
           <div class="item">
@@ -205,7 +209,6 @@
                 <img src="assets/images/service-icon-02.png" alt="">
               </div>
               <h4>Creative Ideas</h4>
-              <p>Aenean bibendum consectetur ex eu porttitor. Pellentesque id ultrices metus.</p>
             </div>
           </div>
           <div class="item">
@@ -214,7 +217,6 @@
                 <img src="assets/images/service-icon-03.png" alt="">
               </div>
               <h4>Ready Target</h4>
-              <p>In non nisi eget magna efficitur ultricies non quis sapien. Pellentesque tellus.</p>
             </div>
           </div>
           <div class="item">
@@ -223,7 +225,6 @@
                 <img src="assets/images/service-icon-04.png" alt="">
               </div>
               <h4>Technology</h4>
-              <p>Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.</p>
             </div>
           </div>
         </div>
@@ -239,7 +240,6 @@
         <div class="section-heading">
           <h6>OUR COURSES</h6>
           <h4>What You Can <em>Learn</em></h4>
-          <p>You just think about TemplateMo whenever you need free CSS templates for your business website</p>
         </div>
       </div>
       <div class="col-lg-12">
@@ -249,9 +249,9 @@
               <div class="col-lg-3">
                 <div class="menu">
                   <div class="active gradient-border"><span>Web Development</span></div>
-                  <div class="gradient-border"><span>Graphic Design</span></div>
+                  <div class="gradient-border"><span>Language</span></div>
                   <div class="gradient-border"><span>Web Design</span></div>
-                  <div class="gradient-border"><span>WordPress</span></div>
+                  <div class="gradient-border"><span>IT Fundamental</span></div>
                 </div>
               </div>
               <div class="col-lg-9">
@@ -350,74 +350,8 @@
       <div class="col-lg-5 align-self-center">
         <h6>Get the sale right now!</h6>
         <h4>Up to 50% OFF For 1+ courses</h4>
-        <p>Kogi VHS freegan bicycle rights try-hard green juice probably haven't heard of them cliche la croix af chillwave.</p>
-        <div class="white-button">
-          <a href="contact-us.html">View Courses</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-heading">
-          <h6>Testimonials</h6>
-          <h4>What They <em>Think</em></h4>
-        </div>
-      </div>
-      <div class="col-lg-12">
-        <div class="owl-testimonials owl-carousel" style="position: relative; z-index: 5;">
-          <div class="item">
-            <p>“just think about TemplateMo if you need free CSS templates for your website”</p>
-            <h4>Catherine Walk</h4>
-            <span>CEO &amp; Founder</span>
-            <img src="assets/images/quote.png" alt="">
-          </div>
-          <div class="item">
-            <p>“think about our website first when you need free HTML templates for your website”</p>
-            <h4>David Martin</h4>
-            <span>CTO of Tech Company</span>
-            <img src="assets/images/quote.png" alt="">
-          </div>
-          <div class="item">
-            <p>“just think about our website wherever you need free templates for your website”</p>
-            <h4>Sophia Whity</h4>
-            <span>CEO and Co-Founder</span>
-            <img src="assets/images/quote.png" alt="">
-          </div>
-          <div class="item">
-            <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-            <h4>Helen Shiny</h4>
-            <span>Tech Officer</span>
-            <img src="assets/images/quote.png" alt="">
-          </div>
-          <div class="item">
-            <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-            <h4>George Soft</h4>
-            <span>Gadget Reviewer</span>
-            <img src="assets/images/quote.png" alt="">
-          </div>
-          <div class="item">
-            <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-            <h4>Andrew Hall</h4>
-            <span>Marketing Manager</span>
-            <img src="assets/images/quote.png" alt="">
-          </div>
-          <div class="item">
-            <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-            <h4>Maxi Power</h4>
-            <span>Fashion Designer</span>
-            <img src="assets/images/quote.png" alt="">
-          </div>
-          <div class="item">
-            <p>“Praesent accumsan condimentum arcu, id porttitor est semper nec. Nunc diam lorem.”</p>
-            <h4>Olivia Too</h4>
-            <span>Creative Designer</span>
-            <img src="assets/images/quote.png" alt="">
-          </div>
+        <div class="white-button" style="margin-top: 20px;">
+          <a th:href="@{/course}">View course</a>
         </div>
       </div>
     </div>

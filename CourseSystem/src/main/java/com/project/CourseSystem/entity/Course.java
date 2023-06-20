@@ -47,13 +47,6 @@ public class Course {
 
     @ManyToMany
     @JoinTable(
-            name = "courseCapstone",
-            joinColumns = @JoinColumn(name = "courseID"),
-            inverseJoinColumns = @JoinColumn(name = "capstoneID"))
-    private Set<Capstone> capstoneID;
-
-    @ManyToMany
-    @JoinTable(
             name = "courseAccount",
             joinColumns = @JoinColumn(name = "courseID"),
             inverseJoinColumns = @JoinColumn(name = "accountID"))

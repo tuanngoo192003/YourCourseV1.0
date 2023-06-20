@@ -2,12 +2,15 @@ package com.project.CourseSystem.controller;
 
 import com.project.CourseSystem.converter.System_AccountConverter;
 import com.project.CourseSystem.converter.UserInfoConverter;
+import com.project.CourseSystem.dto.CategoryDTO;
+import com.project.CourseSystem.dto.CourseDTO;
 import com.project.CourseSystem.dto.SystemAccountDTO;
 import com.project.CourseSystem.dto.UserInfoDTO;
 import com.project.CourseSystem.entity.EmailDetails;
 import com.project.CourseSystem.entity.SystemAccount;
 import com.project.CourseSystem.entity.UserInfo;
 import com.project.CourseSystem.service.AccountService;
+import com.project.CourseSystem.service.CategoryService;
 import com.project.CourseSystem.service.EmailService;
 import com.project.CourseSystem.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,6 +34,8 @@ public class AuthController {
     private UserService userService;
     private UserInfoDTO userInfoDTO;
     private UserInfoConverter userInfoConverter;
+
+    private CategoryService categoryService;
     SystemAccountDTO system_AccountDTO = new SystemAccountDTO();
 
     @Autowired
@@ -40,7 +45,8 @@ public class AuthController {
                           SystemAccountDTO systemAccountDTO,
                           UserService userService,
                           UserInfoDTO userInfoDTO,
-                          UserInfoConverter userInfoConverter) {
+                          UserInfoConverter userInfoConverter,
+                          CategoryService categoryService) {
         this.accountService = accountService;
         this.system_accountConverter = system_accountConverter;
         this.emailService = emailService;
@@ -48,8 +54,10 @@ public class AuthController {
         this.userService = userService;
         this.userInfoDTO = userInfoDTO;
         this.userInfoConverter = userInfoConverter;
+        this.categoryService = categoryService;
     }
 
+    /* login page */
     @GetMapping("/login")
     public String loginPage(Model model, HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
@@ -57,6 +65,11 @@ public class AuthController {
             return "redirect:/home";
         }
         else{
+            CategoryDTO cDto = new CategoryDTO();
+            model.addAttribute("categoryDTO", cDto);
+            CourseDTO courseDTO = new CourseDTO();
+            model.addAttribute("courseDTO", courseDTO);
+            model.addAttribute("category", categoryService.getAllCategories());
             model.addAttribute("system_account", new SystemAccountDTO());
             return "login";
         }
@@ -65,6 +78,11 @@ public class AuthController {
     //handler method to handle user registration request
     @GetMapping("/registration")
     public String showRegistrationForm(Model model, HttpServletRequest request, HttpServletResponse response){
+        CategoryDTO cDto = new CategoryDTO();
+        model.addAttribute("categoryDTO", cDto);
+        CourseDTO courseDTO = new CourseDTO();
+        model.addAttribute("courseDTO", courseDTO);
+        model.addAttribute("category", categoryService.getAllCategories());
         //this object holds form data
         SystemAccountDTO system_accountDTO = new SystemAccountDTO();
         model.addAttribute("system_account", system_accountDTO);
@@ -80,6 +98,11 @@ public class AuthController {
 
     @GetMapping("/resetPassword")
     public String resetPassword(@ModelAttribute SystemAccountDTO systemAccountDTO,Model model, HttpServletRequest request, HttpServletResponse response){
+        CategoryDTO cDto = new CategoryDTO();
+        model.addAttribute("categoryDTO", cDto);
+        CourseDTO courseDTO = new CourseDTO();
+        model.addAttribute("courseDTO", courseDTO);
+        model.addAttribute("category", categoryService.getAllCategories());
         model.addAttribute("system_account", system_AccountDTO);
         return "resetPassword";
     }
@@ -107,7 +130,12 @@ public class AuthController {
     }
 
     @GetMapping("/policy")
-    public String policy(){
+    public String policy(Model model, HttpServletRequest request, HttpServletResponse response){
+        CategoryDTO cDto = new CategoryDTO();
+        model.addAttribute("categoryDTO", cDto);
+        CourseDTO courseDTO = new CourseDTO();
+        model.addAttribute("courseDTO", courseDTO);
+        model.addAttribute("category", categoryService.getAllCategories());
         return "policy";
     }
 }

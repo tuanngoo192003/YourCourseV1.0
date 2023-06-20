@@ -28,4 +28,8 @@ public class Quiz {
 
     @Column(name="quizPeriod", nullable = false)
     private Time quizPeriod;
+
+    @ManyToOne
+    @JoinColumn(name="courseID", nullable = false)
+    private Course courseID;
 }

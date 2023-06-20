@@ -8,12 +8,13 @@
     <script src="https://kit.fontawesome.com/acf74393da.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{assets/css/courseListStyle.css}">
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" th:href="@{assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{assets/css/courseListStyle.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.css}">
+    <link rel="stylesheet" th:href="@{assets/css/lightbox.css}">
     <title>Course List</title>
 </head>
 
@@ -32,9 +33,26 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a th:href="@{/home}" class="active">Home</a></li>
+                        <form
+                                role="form"
+                                method="post"
+                                th:action="@{/search}"
+                                th:object="${courseDTO}"
+                        >
+                            <input type="text" th:field="*{courseName}" placeholder="Search.." style="opacity: 0.5; border-radius: 7px">
+                        </form>
+                        <li class="has-sub">
+                            <a>Category</a>
+                            <ul class="sub-menu">
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=1)}">Language Learning</a></li>
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=2)}">Web development</a></li>
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=3)}">Web design</a></li>
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=4)}">IT Fundamental</a></li>
+                                <li><a th:href="@{/getCourseByCategoryID(categoryID=5)}">Mathematics</a></li>
+                            </ul>
+                        </li>
                         <li class="scroll-to-section"><a href="#services">Services</a></li>
-                        <li class="scroll-to-section"><a href="#courses">Courses</a></li>
+                        <li><a th:href="@{/course}">Courses</a></li>
                         <li class="has-sub">
                             <a href="javascript:void(0)">Pages</a>
                             <ul class="sub-menu">
@@ -43,7 +61,6 @@
                                 <li><a href="contact-us.html">Contact Us</a></li>
                             </ul>
                         </li>
-                        <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li>
                         <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
                         <li class="has-sub">
                             <i class="fa-solid fa-user" style="color: white">
@@ -69,23 +86,52 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-    <div class="container-fluid" style="margin-left: 20px">
+    <div class="container-fluid" style="margin-left: 20px;">
         <div class="row">
-                <form class="col-md-2 filter" method="post" role="form" th:action="@{/filter}" th:object="${categoryDTO}">
+            <div class="col-md-3 filter">
+                <div style="display: flex; margin-bottom: 20px">
+                    <form
+                            role="form"
+                            method="post"
+                            th:action="@{/sort}"
+                            th:object="${courseDTO}"
+                            style="margin-right: 30px;"
+                    >
+                        <select name="option" onchange="this.form.submit()">
+                            <option value="" disabled selected hidden>Sort</option>
+                            <option>Newest</option>
+                            <option>Oldest</option>
+                            <option>About to end</option>
+                        </select>
+                    </form>
+                    <form
+                            role="form"
+                            method="post"
+                            th:action="@{/sort}"
+                            th:object="${courseDTO}"
+                    >
+                        <select name="option" onchange="this.form.submit()">
+                            <option value="" disabled selected hidden>Price</option>
+                            <option>Paid</option>
+                            <option>Free</option>
+                        </select>
+                    </form>
+                </div>
+
+                <form method="post" role="form" th:action="@{/filter}" th:object="${categoryDTO}">
                     <h3>Category</h3>
                     <div th:each="category, state: ${category}">
-                        <div class="option"><input type="checkbox" th:value="${category.categoryName}" th:field="*{categoryName}"><p th:text="${category.categoryName}"></p><br></div>
+                        <div class="option"><input type="checkbox" th:value="${category.categoryName}" th:field="*{categoryName}" onclick="this.form.submit()"><p th:text="${category.categoryName}"></p><br></div>
                     </div>
-
-                    <input type="submit" value="Search">
                 </form>
+            </div>
             <div class="col-md-9 courseList" th:if="${courseList}!=null">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-3 display"
                              th:each="courseList, state: ${courseList}"
                         >
-                            <a th:href="@{/courseDetails(courseID=${courseList.courseID})}"><img th:src="@{/assets/images/HTMT5icon.png}"></a>
+                            <a th:href="@{/courseDetails(courseID=${courseList.courseID})}"><img th:src="@{${courseList.courseImage}}"></a>
                             <div class="displayContent">
                                 <a th:href="@{/courseDetails(courseID=${courseList.courseID})}"><h4 th:text="${courseList.courseName}"></h4></a>
                                 <p th:text="${courseList.courseDes}"></p>
@@ -139,9 +185,25 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-9" th:if="${capstoneList}!=null">
-
+                <!-- codes given below for pagination -->
+                <div th:if="${totalPages > 1}">
+                    <div>
+                        <div>Total Rows: [[${totalItems}]]</div>
+                        <div>
+                            <a th:if="${currentPage < totalPages}"
+                               th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                            <span th:unless="${currentPage < totalPages}">Next</span> <span
+                                th:each="i: ${#numbers.sequence(1, totalPages)}"> <a
+                                th:if="${currentPage != i}"
+                                th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span>
+					</span> <a th:if="${currentPage < totalPages}"
+                               th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                            <span th:unless="${currentPage < totalPages}">Last</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- codes given above for pagination -->
             </div>
         </div>
     </div>
