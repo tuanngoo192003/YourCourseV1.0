@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.left-side{
+    position: absolute;
+}
+.right-side{
+    text-align: right;
+    height: 408px;
+    width: 912px;
+    background-image: url("../images/university.jpg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 2;
+    background-position: 100% 50%;
+}

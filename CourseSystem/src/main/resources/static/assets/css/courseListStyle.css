@@ -84,3 +84,13 @@
     background-color: #dc8cdb;
     color: #fff;
   }
+.container-fluid{
+    background: purple;
+}
+
+.right-image img{
+    position: relative;
+}
+.picture-text{
+    position: absolute;
+}

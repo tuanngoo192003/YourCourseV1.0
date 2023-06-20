@@ -60,4 +60,8 @@ public class CourseController {
     public String courseDetails(){
         return "courseDetails";
     }
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 }
