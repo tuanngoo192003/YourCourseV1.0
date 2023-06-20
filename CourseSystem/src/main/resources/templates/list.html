@@ -131,9 +131,9 @@
                         <div class="col-md-3 display"
                              th:each="courseList, state: ${courseList}"
                         >
-                            <a th:href="@{/courseDetails(courseID=${courseList.courseID})}"><img th:src="@{${courseList.courseImage}}"></a>
+                            <a th:href="@{/learn(courseID=${courseList.courseID})}"><img th:src="@{${courseList.courseImage}}"></a>
                             <div class="displayContent">
-                                <a th:href="@{/courseDetails(courseID=${courseList.courseID})}"><h4 th:text="${courseList.courseName}"></h4></a>
+                                <a th:href="@{/learn(courseID=${courseList.courseID})}"><h4 th:text="${courseList.courseName}"></h4></a>
                                 <p th:text="${courseList.courseDes}"></p>
                             </div>
 

@@ -8,13 +8,35 @@
     <script src="https://kit.fontawesome.com/acf74393da.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{assets/css/learn.css}">
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" th:href="@{assets/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.css}">
+    <link rel="stylesheet" th:href="@{assets/css/lightbox.css}">
     <title>Learn</title>
+    <style>
+        .learn{
+            height: 100%;
+        }
+        .purchase-session{
+            float: right;
+            position: sticky;
+            background-color: white;
+            top: 0px;
+            padding: 10px;
+            border-radius: 7px;
+            box-shadow: 0px 0px 5px 0px #ccc;
+            width: 20%;
+            height: 100%;
+        }
+
+        .course-details{
+            background: rgb(253, 242, 252);
+            border-radius: 7px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
 <!-- ***** Header Area Start ***** -->
@@ -84,71 +106,53 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-  <section class="py-5 my-5">
-      <div class="container-fluid">
-          <div class="bg-white shadow rounded-lg d-block d-sm-flex">
-              <div class="profile-tab-nav border-right" style="overflow-y: scroll">
-                  <div class="p-4">
-                      <div class="course-logo text-center mb-3">
-                          <img th:src="@{${course.courseImage}}">
-                      </div>
-                      <h4 class="text-center" th:text="${course.courseName}"></h4>
-                  </div>
-                  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                      <a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
-                          <i class="fa fa-home text-center mr-1"></i>
-                          Account
-                      </a>
-                      <a class="nav-link" id="security-tab" data-toggle="pill" href="#gmail" role="tab" aria-controls="security" aria-selected="false">
-                          <i class="fa fa-user text-center mr-1"></i>
-                          Gmail
-                      </a>
-                      <a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
-                          <i class="fa fa-key text-center mr-1"></i>
-                          Password
-                      </a>
-                      <a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
-                          <i class="fa fa-bell text-center mr-1"></i>
-                          Notification
-                      </a>
-                      <a class="nav-link" id="lesson3-tab" data-toggle="pill" href="#lesson3" role="tab" aria-controls="lesson3" aria-selected="false">
-                          <i class="fa fa-bell text-center mr-1"></i>
-                          Notification
-                      </a>
-                      <th:block th:each="lessons, state: ${lessonList}">
-                          <a class="nav-link" th:id="${lessons.lessonID}" data-toggle="pill" th:href="'#'+${lessons.lessonID}" role="tab"  th:aria-controls="${lessons.lessonID}" aria-selected="false">
-                              <i class="fa fa-bell text-center mr-1" ></i>
-                              4r4r
-                          </a>
-                      </th:block>
 
-                  </div>
-              </div>
-              <div class="tab-content p-4 p-md-5" id="v-pills-tabContent" style="overflow-y: scroll">
-                  <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-                        <p>sadjfsldfsfksalf</p>
-                  </div>
-                  <div class="tab-pane fade" id="gmail" role="tabpanel" aria-labelledby="gmail-tab">
-                      <p>1231231312313</p>
-                  </div>
-                  <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-                      <p>123123131231fasfsf3</p>
-                  </div>
-                  <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-                      <p>12312313bfbfbfbfb1fasfsf3</p>
-                  </div>
-                  <div class="tab-pane fade" id="lesson3" role="tabpanel" aria-labelledby="lesson3-tab">
-                      <p>12312313bfbfbfbfb1fasfsf3</p>
-                  </div>
-                  <th:block th:each="lessons, state: ${lessonList}">
-                      <div class="tab-pane fade" th:id="${lessons.lessonID}" role="tabpanel" th:aria-labelledby="${lessons.lessonID}+'-tab'">
-                          <p>12312313bfbfbfbfb1fasfsf3</p>
-                      </div>
-                  </th:block>
-              </div>
-          </div>
-      </div>
-  </section>
+<!-- ***** Learn page start ***** -->
+<div class="learn">
+    <div th:if="${enrolledDTO}==null" class="purchase-session">
+        <h2 th:text="${course.price}"></h2>
+        <form
+                role="form"
+                method="post"
+
+        >
+            <input type="submit" value="Add to Cart">
+        </form>
+        <form
+                role="form"
+                method="post"
+
+        >
+            <input type="submit" value="Buy now">
+        </form>
+    </div>
+    <div class="course-details" >
+        <h2 th:text="${course.courseName}"></h2>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <p th:text="${course.courseDes}"></p>
+        <!-- if user not purchase the course, this session appear -->
+    </div>
+</div>
+
+<!-- ***** Learn page end ***** -->
+
+<!-- ***** Footer Start ***** -->
   <div class="container-fluid" style="background: #d69fd5;">
     <div class="row">
       <div class="col-lg-12">
@@ -166,6 +170,7 @@
       </div>
     </div>
   </div>
+<!-- ***** Footer End ***** -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

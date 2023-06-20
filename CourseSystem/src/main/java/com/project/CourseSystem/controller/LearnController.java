@@ -1,18 +1,15 @@
 package com.project.CourseSystem.controller;
 
-import com.project.CourseSystem.dto.CategoryDTO;
-import com.project.CourseSystem.dto.CourseDTO;
-import com.project.CourseSystem.dto.LessonDTO;
-import com.project.CourseSystem.dto.QuizDTO;
+import com.project.CourseSystem.converter.EnrolledConverter;
+import com.project.CourseSystem.dto.*;
 import com.project.CourseSystem.entity.Course;
+import com.project.CourseSystem.entity.Enrolled;
 import com.project.CourseSystem.entity.Lesson;
 import com.project.CourseSystem.entity.Quiz;
-import com.project.CourseSystem.service.CategoryService;
-import com.project.CourseSystem.service.CourseService;
-import com.project.CourseSystem.service.LessonService;
-import com.project.CourseSystem.service.QuizService;
+import com.project.CourseSystem.service.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,12 +30,18 @@ public class LearnController {
 
     private CategoryService categoryService;;
 
+    private EnrolledService enrolledService;
+
+    private EnrolledConverter enrolledConverter;
+
     private LearnController(LessonService lessonService, QuizService quizService, CourseService courseService
-    , CategoryService categoryService) {
+    , CategoryService categoryService, EnrolledService enrolledService, EnrolledConverter enrolledConverter) {
         this.lessonService = lessonService;
         this.quizService = quizService;
         this.courseService = courseService;
         this.categoryService = categoryService;
+        this.enrolledService = enrolledService;
+        this.enrolledConverter = enrolledConverter;
     }
 
     @GetMapping("/learn")
@@ -65,6 +68,13 @@ public class LearnController {
             model.addAttribute("course", course);
             model.addAttribute("lessonList", lessonList);
             model.addAttribute("quizList", quizList);
+
+            HttpSession session = request.getSession();
+            if(session.getAttribute("CSys")!=null){
+                SystemAccountDTO accountDTO = (SystemAccountDTO) session.getAttribute("CSys");
+                EnrolledDTO enrolledDTO = enrolledConverter.convertEntityToDTO(enrolledService.findByAccountIdAndCourseID(accountDTO.getAccountID(), courseID));
+                model.addAttribute("enrolledDTO", enrolledDTO);
+            }
             return "learn";
         }
     }

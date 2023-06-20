@@ -4,6 +4,7 @@ import com.project.CourseSystem.converter.UserInfoConverter;
 import com.project.CourseSystem.dto.CategoryDTO;
 import com.project.CourseSystem.dto.CourseDTO;
 import com.project.CourseSystem.dto.SystemAccountDTO;
+import com.project.CourseSystem.dto.UserInfoDTO;
 import com.project.CourseSystem.entity.UserInfo;
 import com.project.CourseSystem.service.AccountService;
 import com.project.CourseSystem.service.CategoryService;
@@ -18,6 +19,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 public class UserController {
@@ -104,4 +108,30 @@ public class UserController {
         }
     }
 
+    @PostMapping("/updateAvatar")
+    public String uploadAvatar(@Param("file") MultipartFile file, Model model, HttpServletRequest request, HttpServletResponse response){
+        try{
+            String avt = file.getOriginalFilename();
+            System.out.println(avt);
+            userService.updateAvatar(file);
+        }
+        catch (IOException e){
+            model.addAttribute("error", "Error while uploading file");
+            return "redirect:/profile?error=Error while uploading file";
+        }
+        HttpSession session = request.getSession();
+        CategoryDTO cDto = new CategoryDTO();
+        model.addAttribute("categoryDTO", cDto);
+        CourseDTO courseDTO = new CourseDTO();
+        model.addAttribute("courseDTO", courseDTO);
+        model.addAttribute("category", categoryService.getAllCategories());
+        String accountName = (String) session.getAttribute("CSys");
+        SystemAccountDTO systemAccountDTO = accountService.findUserByAccountName(accountName);
+        UserInfo userInfo = userService.findUser(systemAccountDTO.getAccountID());
+        model.addAttribute("userInfo", userInfoConverter.convertEntityToDTO(userInfo));
+        String gmail = systemAccountDTO.getGmail();
+        model.addAttribute("gmail", gmail);
+        model.addAttribute("system_account", systemAccountDTO);
+        return "userProfile";
+    }
 }

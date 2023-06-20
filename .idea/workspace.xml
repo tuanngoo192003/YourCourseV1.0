@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e87a86b9-bebd-4fde-912b-d20f769ef255" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/EnrolledConverter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/RatingCourseDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/QuizRevision.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/RatingCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/EnrolledService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/EnrolledServiceImpl.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/home.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/policy.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/images/bg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/config/WebSpringSecurity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/CourseController.java" afterDir="false" />
@@ -34,17 +38,22 @@
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CapstoneRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CourseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/DiscountRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/EnrolledRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/EnrolledRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/NotificationRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CapstoneService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CapstoneServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/Homepage_style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/courseListStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/courseListStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/learn.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/learn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/templatemo-eduwell-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/your-course.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/capstoneDetails.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/courseDetails.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/learn.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/learn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/list.html" afterDir="false" />
@@ -90,21 +99,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/84393/Downloads/demo123 (1)/demo123",
-    "spring.configuration.checksum": "318b10dff6c223d653f9b71db17482b5"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/84393/Downloads/demo123 (1)/demo123&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;318b10dff6c223d653f9b71db17482b5&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\84393\OneDrive\Tài liệu\GitHub\YourCourseV1.0\CourseSystem\src\main\resources\static\assets\images" />
@@ -141,6 +150,7 @@
       <workItem from="1687188739811" duration="2859000" />
       <workItem from="1687241435572" duration="701000" />
       <workItem from="1687242150810" duration="23228000" />
+      <workItem from="1687280376528" duration="2521000" />
     </task>
     <servers />
   </component>

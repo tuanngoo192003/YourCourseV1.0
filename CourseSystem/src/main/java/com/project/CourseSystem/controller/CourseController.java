@@ -64,18 +64,6 @@ public class CourseController {
         return "list";
     }
 
-    @GetMapping("/courseDetails")
-    public String getCourseDetails(@RequestParam Integer courseID, Model model,
-                                   HttpServletRequest request, HttpServletResponse response) {
-        if(courseID == null) {
-            return "redirect:/course";
-        }
-
-        int id = courseID.intValue();
-        model.addAttribute("course", courseService.getCourseByID(id));
-        return "courseDetails";
-    }
-
     @PostMapping("/filter")
     public String filter(@ModelAttribute("category") CategoryDTO categoryDTO, Model model,
                          HttpServletRequest request, HttpServletResponse response) {
