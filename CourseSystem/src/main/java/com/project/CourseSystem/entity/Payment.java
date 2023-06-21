@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -29,7 +30,10 @@ public class Payment {
         @JoinColumn(name="userID", nullable = false)
         private UserInfo userID;
 
-        @OneToOne
-        @JoinColumn(name="courseID", nullable = false)
-        private Course courseID;
+        @ManyToMany
+        @JoinTable(
+                name = "paymentCourse",
+                joinColumns = @JoinColumn(name = "paymentID"),
+                inverseJoinColumns = @JoinColumn(name = "courseID"))
+        private Set<Course> courseID;
 }

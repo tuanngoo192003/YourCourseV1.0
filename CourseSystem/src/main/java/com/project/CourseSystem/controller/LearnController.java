@@ -54,12 +54,22 @@ public class LearnController {
             int id = courseID.intValue();
             CourseDTO course = courseService.getCourseByID(id);
 
+            /* get lesson list */
             List<LessonDTO> lessonList = lessonService.getAllByCourseID(id);
-
             List<QuizDTO> quizList = new ArrayList<>();
             for (LessonDTO lesson : lessonList) {
                 quizList.add(quizService.getAllByLessonID(lesson.getLessonID()));
             }
+
+            /* what you can learn */
+            CourseDetailsDTO courseDetailsDTO =courseService.getCourseDetailsByID(id);
+            List<String> whatYouCanLearn = new ArrayList<>();
+            for(String s: courseDetailsDTO.getCourseDetailsContent().split("/")){
+                whatYouCanLearn.add(s);
+            }
+
+            /* set model attribute */
+            model.addAttribute("whatYouCanLearn", whatYouCanLearn);
             CategoryDTO cDto = new CategoryDTO();
             model.addAttribute("categoryDTO", cDto);
             CourseDTO courseDTO = new CourseDTO();
@@ -69,6 +79,7 @@ public class LearnController {
             model.addAttribute("lessonList", lessonList);
             model.addAttribute("quizList", quizList);
 
+            /* check if user is enrolled */
             HttpSession session = request.getSession();
             if(session.getAttribute("CSys")!=null){
                 SystemAccountDTO accountDTO = (SystemAccountDTO) session.getAttribute("CSys");

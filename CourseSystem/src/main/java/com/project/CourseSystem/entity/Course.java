@@ -20,13 +20,13 @@ public class Course {
     @Column(name="courseID", nullable = false)
     private Integer courseID;
 
-    @Column(name="courseName", nullable = false, length = 50)
+    @Column(name="courseName", nullable = false, length = 100)
     private String courseName;
 
     @Column(name="courseImage", nullable = false, length = 200)
     private String courseImage;
 
-    @Column(name="courseDes", nullable = false, length = 200)
+    @Column(name="courseDes", nullable = false, length = 1000)
     private String courseDes;
 
     @Column(name="createdDate", nullable = false)

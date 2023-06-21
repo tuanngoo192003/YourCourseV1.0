@@ -32,7 +32,7 @@ public class CourseController {
     @GetMapping("/course")
     public String getCourse(Model model, HttpServletRequest request, HttpServletResponse response){
         //pagination
-        return getPaginated(1, "courseID", "asc", model, request, response);
+        return getPaginated(1, "courseID", "desc", model, request, response);
     }
 
     @GetMapping("/course/page/{pageNo}")
@@ -43,6 +43,36 @@ public class CourseController {
         int pageSize = 18;
         //pagination attribute
         Page<Course> page = courseService.findPaginated(pageNo, pageSize, sortField, sortDir);
+        List<Course> courseList = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc")?"desc":"asc");
+
+        model.addAttribute("courseList", courseList);
+
+        //nav bar attribute
+        CategoryDTO cDto = new CategoryDTO();
+        CourseDTO courseDTO = new CourseDTO();
+        model.addAttribute("courseDTO", courseDTO);
+        model.addAttribute("categoryDTO", cDto);
+        model.addAttribute("category", categoryService.getAllCategories());
+        return "list";
+    }
+
+    @GetMapping("/course/sort/page/{pageNo}")
+    public String getPaginatedByAttribute(@PathVariable (value = "pageNo") int pageNo,
+                               @RequestParam("sortField") String sortField,
+                               @RequestParam("sortDir") String sortDir,
+                               String attribute, String value,
+                               Model model, HttpServletRequest request, HttpServletResponse response){
+        int pageSize = 18;
+        //pagination attribute
+        Page<Course> page = courseService.findPaginatedByAttribute(pageNo, pageSize, sortField, sortDir, attribute, value);
         List<Course> courseList = page.getContent();
 
         model.addAttribute("currentPage", pageNo);
@@ -88,5 +118,45 @@ public class CourseController {
         model.addAttribute("category", categoryService.getAllCategories());
         model.addAttribute("courseList", courseService.getAllCoursesByCategoryID(categoryID));
         return "list";
+    }
+
+    @PostMapping("/sort")
+    public String sort(@ModelAttribute("courseDTO") CourseDTO courseDTO, @RequestParam("option") String option,
+                       Model model, HttpServletRequest request, HttpServletResponse response){
+        if(option.equals("Newest")){
+            String sortField = "startDate";
+            String sortDir = "desc";
+            return getPaginated(1, sortField, sortDir, model, request, response);
+        }
+        else if(option.equals("Oldest")){
+            String sortField = "startDate";
+            String sortDir = "asc";
+            return getPaginated(1, sortField, sortDir, model, request, response);
+        }
+        else if(option.equals("About to end")){
+            String sortField = "endDate";
+            String sortDir = "asc";
+            return getPaginated(1, sortField, sortDir, model, request, response);
+        }
+        else if(option.equals("High to low")){
+            String sortField = "price";
+            String sortDir = "desc";
+            return getPaginated(1, sortField, sortDir, model, request, response);
+        }
+        else if(option.equals("Low to high")){
+            String sortField = "price";
+            String sortDir = "asc";
+            return getPaginated(1, sortField, sortDir, model, request, response);
+        }
+        else if(option.equals("Free")){
+            String sortField = "price";
+            String sortDir = "desc";
+            return getPaginatedByAttribute(1, sortField, sortDir, "price", "0", model, request, response);
+        }
+        else{
+            String sortField = "courseID";
+            String sortDir = "asc";
+            return getPaginated(1, sortField, sortDir, model, request, response);
+        }
     }
 }

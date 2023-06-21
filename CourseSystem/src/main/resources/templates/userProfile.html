@@ -10,7 +10,6 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
     <title>User profile</title>
@@ -84,6 +83,7 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
+<!-- ***** Welcome Area Start ***** -->
 <section class="py-5 my-5">
     <div class="container">
         <div class="bg-white shadow rounded-lg d-block d-sm-flex">
@@ -125,7 +125,7 @@
                 <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
                     <h3 class="mb-4">Account Settings</h3>
                     <form class="row"
-                        method="post"
+                          method="post"
                           th:action="@{saveUser}"
                           th:object="${userInfo}"
                     >
@@ -133,7 +133,7 @@
                             <div class="form-group">
                                 <label>Full Name</label>
                                 <input type="text" class="form-control" th:value="${userInfo.userName}"
-                                        th:field="*{userName}"
+                                       th:field="*{userName}"
                                        name="userName"
                                        id="userName"
                                 >
@@ -143,9 +143,9 @@
                             <div class="form-group">
                                 <label>Phone number</label>
                                 <input type="text" class="form-control" th:value="${userInfo.phoneNums}"
-                                        th:field="*{phoneNums}"
-                                        name="phoneNums"
-                                        id="phoneNums"
+                                       th:field="*{phoneNums}"
+                                       name="phoneNums"
+                                       id="phoneNums"
                                 >
                             </div>
                         </div>
@@ -153,9 +153,9 @@
                             <div class="form-group">
                                 <label>Location</label>
                                 <input type="text" class="form-control" th:value="${userInfo.location}"
-                                        th:field="*{location}"
-                                        name="location"
-                                        id="location"
+                                       th:field="*{location}"
+                                       name="location"
+                                       id="location"
                                 >
                             </div>
                         </div>
@@ -176,9 +176,9 @@
                             <div class="form-group">
                                 <label>Bio</label>
                                 <textarea class="form-control" rows="4" th:value="${userInfo.aboutMe}"
-                                            th:field="*{aboutMe}"
-                                            name="aboutMe"
-                                            id="aboutMe"
+                                          th:field="*{aboutMe}"
+                                          name="aboutMe"
+                                          id="aboutMe"
                                 ></textarea>
                             </div>
                         </div>
@@ -192,9 +192,9 @@
                         <p>Gmail existed!</p>
                     </div>
                     <form class="row"
-                            method="post"
-                            th:action="@{/verifyCodeSendForChangeGmail}"
-                            th:object="${system_account}"
+                          method="post"
+                          th:action="@{/verifyCodeSendForChangeGmail}"
+                          th:object="${system_account}"
                     >
                         <div class="col-md-6">
                             <div class="form-group">
@@ -236,11 +236,11 @@
                                 <label>Enter Password</label>
                                 <input
                                         class="form-control"
-                                    type="password"
-                                    id="newPassword"
-                                    name="password"
-                                    th:field="*{accountPassword}"
-                                    required
+                                        type="password"
+                                        id="newPassword"
+                                        name="password"
+                                        th:field="*{accountPassword}"
+                                        required
                                 >
                             </div>
                         </div>
@@ -291,6 +291,24 @@
         </div>
     </div>
 </section>
+
+<div class="container-fluid" style="background: #d69fd5;">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="social-icons">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+            </ul>
+        </div>
+        <div class="col-lg-12">
+            <p class="copyright">Copyright © 2022 EduWell Co., Ltd. All Rights Reserved.
+                <br>Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+        </div>
+    </div>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

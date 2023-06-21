@@ -17,6 +17,7 @@ public class CourseDetails {
     @Column(name="courseDetailsID", nullable = false)
     private Integer courseDetailsID;
 
+    @Column(name="courseDetailsContent", nullable = false, length = 10000)
     private String courseDetailsContent;
 
     @OneToOne

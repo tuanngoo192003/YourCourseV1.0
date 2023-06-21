@@ -29,10 +29,14 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public QuizDTO getAllByLessonID(int lessonID) {
         Integer quizID = lessonRepository.getQuizIDByLessonID(lessonID);
-        int id = quizID.intValue();
-        Quiz quiz = quizRepository.findByID(id);
-        QuizDTO quizDTO = quizConverter.convertEntityToDto(quiz);
-
-        return quizDTO;
+        if(quizID != null){
+            int id = quizID.intValue();
+            Quiz quiz = quizRepository.findByID(id);
+            QuizDTO quizDTO = quizConverter.convertEntityToDto(quiz);
+            return quizDTO;
+        }
+        else{
+            return null;
+        }
     }
 }

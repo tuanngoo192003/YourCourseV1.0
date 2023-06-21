@@ -16,6 +16,55 @@
     <link rel="stylesheet" th:href="@{assets/css/owl.css}">
     <link rel="stylesheet" th:href="@{assets/css/lightbox.css}">
     <title>Course List</title>
+    <style>
+        .displayContent{
+            width: 100%;
+            height: 100%;
+        }
+
+        .displayContent h4{
+            text-align: center;
+            font-weight: bold;
+            color: black;
+        }
+
+        .displayContent p{
+            margin-left: 15px;
+            color: dimgray;
+        }
+        .display img{
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            margin: 5px 5px;
+            border-radius: 10px;
+        }
+
+        .display {
+            display: flex;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            border-radius: 10px;
+            border: 2px solid black;
+            margin-bottom: 30px;
+        }
+
+        #add-to-cart{
+            margin-right: 20px;
+            float: right;
+            background: linear-gradient(to right, #ffb963, #ff88f9);
+            border: none;
+            color: white;
+            transition: 2s;
+            border-radius: 10px;
+        }
+
+        #add-to-cart:hover{
+            background: white;
+            border: none;
+            color: #ffb963;
+        }
+    </style>
 </head>
 
 <body>
@@ -112,7 +161,8 @@
                     >
                         <select name="option" onchange="this.form.submit()">
                             <option value="" disabled selected hidden>Price</option>
-                            <option>Paid</option>
+                            <option>High to low</option>
+                            <option>Low to high</option>
                             <option>Free</option>
                         </select>
                     </form>
@@ -127,61 +177,16 @@
             </div>
             <div class="col-md-9 courseList" th:if="${courseList}!=null">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-3 display"
-                             th:each="courseList, state: ${courseList}"
-                        >
-                            <a th:href="@{/learn(courseID=${courseList.courseID})}"><img th:src="@{${courseList.courseImage}}"></a>
-                            <div class="displayContent">
-                                <a th:href="@{/learn(courseID=${courseList.courseID})}"><h4 th:text="${courseList.courseName}"></h4></a>
-                                <p th:text="${courseList.courseDes}"></p>
-                            </div>
+                    <div class="display"
+                         th:each="courseList, state: ${courseList}"
+                    >
+                        <a th:href="@{/learn(courseID=${courseList.courseID})}"><img th:src="@{${courseList.courseImage}}"></a>
+                        <div class="displayContent">
+                            <a th:href="@{/learn(courseID=${courseList.courseID})}"><h4 th:text="${courseList.courseName}"></h4></a>
+                            <p th:text="${courseList.courseDes}"></p>
+                            <input type="button" value="Add To Cart" id="add-to-cart">
+                            <p th:text="'Price: '+${courseList.price}+'đ'" style="float: left; margin-left: 15px;"></p>
 
-                        </div>
-                        <div class="col-md-3 display">
-                            <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
-                            <div class="displayContent">
-                                <h4>CSI104</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                    been the
-                                    industry's standard dummy text ever since...</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 display">
-                            <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
-                            <div class="displayContent">
-                                <h4>CSI104</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                    been the
-                                    industry's standard dummy text ever since...</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 display">
-                            <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
-                            <div class="displayContent">
-                                <h4>CSI104</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                    been the
-                                    industry's standard dummy text ever since...</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 display">
-                            <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
-                            <div class="displayContent">
-                                <h4>CSI104</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                    been the
-                                    industry's standard dummy text ever since...</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 display">
-                            <a href="#"><img src="../static/assets/images/placehoder-img.jpg"></a>
-                            <div class="displayContent">
-                                <h4>CSI104</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                    been the
-                                    industry's standard dummy text ever since...</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,14 +196,14 @@
                         <div>Total Rows: [[${totalItems}]]</div>
                         <div>
                             <a th:if="${currentPage < totalPages}"
-                               th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                               th:href="@{'/course'+'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
                             <span th:unless="${currentPage < totalPages}">Next</span> <span
                                 th:each="i: ${#numbers.sequence(1, totalPages)}"> <a
                                 th:if="${currentPage != i}"
-                                th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+                                th:href="@{'/course'+'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
 						<span th:unless="${currentPage != i}">[[${i}]]</span>
 					</span> <a th:if="${currentPage < totalPages}"
-                               th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                               th:href="@{'/course'+'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
                             <span th:unless="${currentPage < totalPages}">Last</span>
                         </div>
                     </div>
