@@ -119,15 +119,23 @@ public class UserController {
             model.addAttribute("error", "Error while uploading file");
             return "redirect:/profile?error=Error while uploading file";
         }
+        /* save avatar */
         HttpSession session = request.getSession();
+        String accountName = (String) session.getAttribute("CSys");
+        SystemAccountDTO systemAccountDTO = accountService.findUserByAccountName(accountName);
+        UserInfo userInfo = userService.findUser(systemAccountDTO.getAccountID());
+        String avatar = "/photos/" + file.getOriginalFilename();
+        userInfo.setAvatar(avatar);
+        userService.saveAvatar(userInfo);
+
+        /* set up object */
         CategoryDTO cDto = new CategoryDTO();
         model.addAttribute("categoryDTO", cDto);
         CourseDTO courseDTO = new CourseDTO();
         model.addAttribute("courseDTO", courseDTO);
         model.addAttribute("category", categoryService.getAllCategories());
-        String accountName = (String) session.getAttribute("CSys");
-        SystemAccountDTO systemAccountDTO = accountService.findUserByAccountName(accountName);
-        UserInfo userInfo = userService.findUser(systemAccountDTO.getAccountID());
+
+        /* set up model */
         model.addAttribute("userInfo", userInfoConverter.convertEntityToDTO(userInfo));
         String gmail = systemAccountDTO.getGmail();
         model.addAttribute("gmail", gmail);

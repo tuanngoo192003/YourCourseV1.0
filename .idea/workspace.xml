@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e87a86b9-bebd-4fde-912b-d20f769ef255" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/EnrolledConverter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/RatingCourseDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/QuizRevision.java" afterDir="false" />
@@ -151,6 +150,7 @@
       <workItem from="1687241435572" duration="701000" />
       <workItem from="1687242150810" duration="23228000" />
       <workItem from="1687280376528" duration="2521000" />
+      <workItem from="1687331241776" duration="3852000" />
     </task>
     <servers />
   </component>
