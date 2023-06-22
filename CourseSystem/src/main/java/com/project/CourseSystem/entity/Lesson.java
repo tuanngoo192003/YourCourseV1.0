@@ -20,7 +20,7 @@ public class Lesson {
         @Column(name="lessonName", nullable = false, length = 60)
         private String lessonName;
 
-        @Column(name="lessonDes", nullable = true, length = 200)
+        @Column(name="lessonDes", nullable = true, length = 5000)
         private String lessonDes;
 
         @ManyToOne
