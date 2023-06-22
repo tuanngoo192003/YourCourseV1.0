@@ -12,6 +12,10 @@ public class CourseDetailsConverter {
         courseDetails.setCourseID(courseDetailsDTO.getCourseID());
         courseDetails.setCourseDetailsContent(courseDetailsDTO.getCourseDetailsContent());
         courseDetails.setCourseDetailsID(courseDetailsDTO.getCourseDetailsID());
+        courseDetails.setCourseDescription(courseDetailsDTO.getCourseDescription());
+        courseDetails.setUpdatedDate(courseDetailsDTO.getUpdatedDate());
+        courseDetails.setCourseRequirements(courseDetailsDTO.getCourseRequirements());
+        courseDetails.setForWho(courseDetailsDTO.getForWho());
         return courseDetails;
     }
 
@@ -20,6 +24,10 @@ public class CourseDetailsConverter {
         courseDetailsDTO.setCourseID(courseDetails.getCourseID());
         courseDetailsDTO.setCourseDetailsContent(courseDetails.getCourseDetailsContent());
         courseDetailsDTO.setCourseDetailsID(courseDetails.getCourseDetailsID());
+        courseDetailsDTO.setCourseDescription(courseDetails.getCourseDescription());
+        courseDetailsDTO.setUpdatedDate(courseDetails.getUpdatedDate());
+        courseDetailsDTO.setCourseRequirements(courseDetails.getCourseRequirements());
+        courseDetailsDTO.setForWho(courseDetails.getForWho());
         return courseDetailsDTO;
     }
 }

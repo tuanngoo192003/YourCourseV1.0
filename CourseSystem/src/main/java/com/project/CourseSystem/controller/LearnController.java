@@ -34,14 +34,18 @@ public class LearnController {
 
     private EnrolledConverter enrolledConverter;
 
+    private AccountService accountService;
+
     private LearnController(LessonService lessonService, QuizService quizService, CourseService courseService
-    , CategoryService categoryService, EnrolledService enrolledService, EnrolledConverter enrolledConverter) {
+    , CategoryService categoryService, EnrolledService enrolledService, EnrolledConverter enrolledConverter,
+                            AccountService accountService) {
         this.lessonService = lessonService;
         this.quizService = quizService;
         this.courseService = courseService;
         this.categoryService = categoryService;
         this.enrolledService = enrolledService;
         this.enrolledConverter = enrolledConverter;
+        this.accountService = accountService;
     }
 
     @GetMapping("/learn")
@@ -61,15 +65,38 @@ public class LearnController {
                 quizList.add(quizService.getAllByLessonID(lesson.getLessonID()));
             }
 
-            /* what you can learn */
+            //Get course details
             CourseDetailsDTO courseDetailsDTO =courseService.getCourseDetailsByID(id);
+
+            /* what you can learn */
             List<String> whatYouCanLearn = new ArrayList<>();
             for(String s: courseDetailsDTO.getCourseDetailsContent().split("/")){
                 whatYouCanLearn.add(s);
             }
+            model.addAttribute("whatYouCanLearn", whatYouCanLearn);
+
+            /* Requirement */
+            List<String> requirement = new ArrayList<>();
+            for(String s: courseDetailsDTO.getCourseRequirements().split("/")){
+                requirement.add(s);
+            }
+            model.addAttribute("requirement", requirement);
+
+            /* Description */
+            List<String> courseDes = new ArrayList<>();
+            for(String s: courseDetailsDTO.getCourseDescription().split("/")){
+                courseDes.add(s);
+            }
+            model.addAttribute("courseDes", courseDes);
+
+            /* Who is this course for */
+            List<String> whoFor = new ArrayList<>();
+            for(String s: courseDetailsDTO.getForWho().split("/")){
+                whoFor.add(s);
+            }
+            model.addAttribute("whoFor", whoFor);
 
             /* set model attribute */
-            model.addAttribute("whatYouCanLearn", whatYouCanLearn);
             CategoryDTO cDto = new CategoryDTO();
             model.addAttribute("categoryDTO", cDto);
             CourseDTO courseDTO = new CourseDTO();
@@ -82,9 +109,13 @@ public class LearnController {
             /* check if user is enrolled */
             HttpSession session = request.getSession();
             if(session.getAttribute("CSys")!=null){
-                SystemAccountDTO accountDTO = (SystemAccountDTO) session.getAttribute("CSys");
-                EnrolledDTO enrolledDTO = enrolledConverter.convertEntityToDTO(enrolledService.findByAccountIdAndCourseID(accountDTO.getAccountID(), courseID));
-                model.addAttribute("enrolledDTO", enrolledDTO);
+                String accountName = (String) session.getAttribute("CSysName");
+                SystemAccountDTO accountDTO = accountService.findUserByAccountName(accountName);
+                Enrolled enrolled = enrolledService.findByAccountIdAndCourseID(accountDTO.getAccountID(), courseID);
+                if(enrolled != null){
+                    EnrolledDTO enrolledDTO = enrolledConverter.convertEntityToDTO(enrolled);
+                    model.addAttribute("enrolledDTO", enrolledDTO);
+                }
             }
             return "learn";
         }

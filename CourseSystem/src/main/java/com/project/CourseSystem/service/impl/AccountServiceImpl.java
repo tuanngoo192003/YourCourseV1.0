@@ -32,19 +32,30 @@ public class AccountServiceImpl implements AccountService {
     public SystemAccountDTO findUser(String account_name, String account_password) {
         SystemAccountDTO system_accountDTO = new SystemAccountDTO();
         SystemAccount system_accountEntity = system_accountRespository.findByAccount_name(account_name);
-        system_accountDTO.setAccountID(system_accountEntity.getAccountID());
-        system_accountDTO.setAccountName(system_accountEntity.getAccountName());
-        system_accountDTO.setAccountPassword(system_accountEntity.getAccountPassword());
-        system_accountDTO.setGmail(system_accountEntity.getGmail());
-        system_accountDTO.setRoleID(system_accountEntity.getRoleID());
-        return system_accountDTO;
+        if(system_accountEntity == null){
+            return system_accountDTO;
+        }
+        else{
+            system_accountDTO.setAccountID(system_accountEntity.getAccountID());
+            system_accountDTO.setAccountName(system_accountEntity.getAccountName());
+            system_accountDTO.setAccountPassword(system_accountEntity.getAccountPassword());
+            system_accountDTO.setGmail(system_accountEntity.getGmail());
+            system_accountDTO.setRoleID(system_accountEntity.getRoleID());
+            return system_accountDTO;
+        }
     }
 
     @Override
     public SystemAccountDTO findUserByAccountName(String account_name) {
         SystemAccount systemAccount = system_accountRespository.findByAccount_name(account_name);
-        SystemAccountDTO systemAccountDTO = system_accountConverter.convertEntityToDTO(systemAccount);
-        return systemAccountDTO;
+        if(systemAccount == null){
+            SystemAccountDTO systemAccountDTO = new SystemAccountDTO();
+            return systemAccountDTO;
+        }
+        else{
+            SystemAccountDTO systemAccountDTO = system_accountConverter.convertEntityToDTO(systemAccount);
+            return systemAccountDTO;
+        }
     }
 
     @Override

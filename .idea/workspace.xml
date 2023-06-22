@@ -12,7 +12,6 @@
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/RatingCourse.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/EnrolledService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/EnrolledServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/home.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/policy.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/your-course.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/images/Python-logo-notext.svg.png" afterDir="false" />
@@ -32,6 +31,7 @@
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CourseConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CourseConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CapstoneDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDetailsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDetailsDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/DiscountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/DiscountDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Capstone.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Course.java" afterDir="false" />
@@ -51,6 +51,7 @@
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CapstoneService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/AccountServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CapstoneServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CourseServiceImpl.java" afterDir="false" />
@@ -60,7 +61,9 @@
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/Homepage_style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/courseListStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/courseListStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/learn.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/learn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/loginStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/loginStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/profileStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/profileStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/templatemo-eduwell-style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/capstoneDetails.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/courseDetails.html" beforeDir="false" />
@@ -109,21 +112,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/84393/OneDrive/Tài liệu/GitHub/YourCourseV1.0/CourseSystem/src/main/resources/static/assets/images",
-    "spring.configuration.checksum": "318b10dff6c223d653f9b71db17482b5"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/84393/OneDrive/Tài liệu/GitHub/YourCourseV1.0/CourseSystem/src/main/resources/static/assets/images&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;318b10dff6c223d653f9b71db17482b5&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\84393\OneDrive\Tài liệu\GitHub\YourCourseV1.0\CourseSystem\src\main\resources\static\assets\images" />
@@ -162,6 +165,9 @@
       <workItem from="1687242150810" duration="23228000" />
       <workItem from="1687280376528" duration="2521000" />
       <workItem from="1687331241776" duration="20217000" />
+      <workItem from="1687403547921" duration="79000" />
+      <workItem from="1687403638072" duration="6470000" />
+      <workItem from="1687440400914" duration="6832000" />
     </task>
     <servers />
   </component>

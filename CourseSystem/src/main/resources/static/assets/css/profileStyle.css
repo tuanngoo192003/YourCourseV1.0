@@ -249,7 +249,8 @@ header
 }
 
 .header-area {
-    background-image: url(../images/header-bg.png);
+    background: rgb(219,138,222) !important;
+    background: linear-gradient(-145deg, rgba(219,138,222,1) 0%, rgba(246,191,159,1) 100%) !important;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

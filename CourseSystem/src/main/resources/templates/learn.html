@@ -23,53 +23,137 @@
         .learn{
             height: 100%;
         }
-        .purchase-session{
-            float: right;
-            position: sticky;
-            background-color: white;
-            top: 0px;
-            padding: 10px;
-            border-radius: 7px;
-            box-shadow: 0px 0px 5px 0px #ccc;
-            width: 20%;
-            height: 100%;
-        }
 
         .course-details{
-            background: rgb(253, 242, 252);
-            border-radius: 7px;
-            padding: 10px;
+            background: rgb(255, 250, 243);
+            padding: 35px 0px 40px 25px;
         }
 
         .course-details h2{
-
+            color: rgb(223, 141, 94);
+            font-weight: 700;
         }
 
         .course-details p{
-
+            color: black;
         }
 
         .what-you-can-learn{
-            margin-left: 40px;
+            padding: 30px 0px 40px 0px;
+            margin-top: 50px;
+            margin-left: 70px;
+            width: 70%;
             border-radius: 10px;
             border: 1px solid gray;
+            box-shadow: rgb(223, 141, 94);
+        }
+
+        .what-you-can-learn h3{
+            margin-left: 40px;
+            font-weight: 700;
         }
 
         .what-you-can-learn ul li{
-            list-style: circle;
+            list-style: none;
             margin-left: 10px;
+            font-weight: 400;
+            color: rgb(58, 58, 58);
         }
 
+        .what-you-can-learn ul li:before{
+            content: '✓';
+        }
+
+
         .lessonList{
+            padding: 5px 5px;
+            margin: 40px 0px 50px 70px;
             width: 70%;
-            margin-left: 100px;
             border: 1px solid gray;
         }
+
+        .lName p{
+            font-weight: 700;
+        }
+
+        .course-title{
+            margin: 50px 0px 20px 0px;
+            font-weight: 700;
+        }
+
+        html{
+            scroll-behavior: smooth;
+            background: whitesmoke;
+        }
+
+        .purchase-session{
+            margin-top: 29px;
+            margin-right: 20px;
+            float: right;
+            background-color: white;
+            top: 0px;
+            padding: 10px;
+            box-shadow: 0px 0px 5px 0px #ccc;
+            width: 20%;
+            height: 300px;
+        }
+
+        .purchase-session h2{
+            margin-left: 10px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .purchase-session form{
+            align-content: center;
+            text-align: center;
+        }
+
+        #add-to-cart{
+            padding: 20px 30px;
+            background: linear-gradient(to right, #ffb963, #ff88f9);
+            border: none;
+            color: white;
+            transition: 2s;
+            border-radius: 10px;
+            margin-bottom: 7px;
+        }
+
+        #add-to-cart:hover{
+            background: white;
+            border: none;
+            color: #ffb963;
+        }
+
+        #buy-now{;
+            padding: 20px 30px;
+            background: whitesmoke;
+            border: none;
+            color: rgb(58, 58, 58);
+            transition: 2s;
+            border-radius: 10px;
+        }
+
+        #buy-now:hover{
+            background: gray;
+            border: none;
+            color: rgb(58, 58, 58);
+        }
+
+        .requirement ul li{
+            list-style: disc;
+        }
+
+        .whoFor ul li{
+            list-style: disc;
+        }
+
+
     </style>
 </head>
 <body>
 <!-- ***** Header Area Start ***** -->
-<header class="header-area header-sticky">
+<header class="header-area header-sticky sticky-top">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -113,7 +197,7 @@
                         <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
                         <li class="has-sub">
                             <i class="fa-solid fa-user" style="color: white">
-                                <ul class="sub-menu">
+                                <ul class="sub-menu sticky-top position-absolute">
                                     <p th:if="${session.CSys}!=null">
                                     <li><a th:href="@{/profile}">My Account</a></li>
                                     <li><a th:href="@{/logout}">Log out</a></li>
@@ -133,52 +217,58 @@
             </div>
         </div>
     </div>
+    <!-- if user not purchase the course, this session appear -->
+    <div th:if="${enrolledDTO}==null" class="purchase-session sticky-top">
+        <h2 th:text="'₫'+${course.price}"></h2>
+        <form
+                role="form"
+                method="post"
+
+        >
+            <input type="submit" value="Add to Cart" id="add-to-cart">
+        </form>
+        <form
+                role="form"
+                method="post"
+
+        >
+            <input type="submit" value="Buy now" id="buy-now">
+        </form>
+    </div>
 </header>
 <!-- ***** Header Area End ***** -->
 
 <!-- ***** Learn page start ***** -->
+
 <div class="learn">
-    <!-- if user not purchase the course, this session appear -->
-    <div th:if="${enrolledDTO}==null" class="purchase-session">
-        <h2 th:text="${course.price}"></h2>
-        <form
-                role="form"
-                method="post"
-
-        >
-            <input type="submit" value="Add to Cart">
-        </form>
-        <form
-                role="form"
-                method="post"
-
-        >
-            <input type="submit" value="Buy now">
-        </form>
-    </div>
     <div class="course-details" >
         <h2 th:text="${course.courseName}"></h2>
-        <p th:text="${course.courseDes}"></p>
+        <h4 th:text="${course.courseDes}"></h4>
+        <p th:text="'Create at: '+${course.createdDate}"></p>
+        <p th:text="'Last update at: '+${course.createdDate}"></p>
     </div>
 </div>
 <div class="container what-you-can-learn">
     <div class="row">
-        <h2>What you can learn</h2>
+        <h3>What you can learn</h3>
         <div class="col-md-8">
             <ul>
                 <th:block th:each="state: ${whatYouCanLearn}">
-                    <li th:text="${state}"></li>
+                    <li th:text="'    '+${state}"></li>
                 </th:block>
             </ul>
         </div>
     </div>
+</div>
+<div class="container">
+    <h3 class="course-title">Course content</h3>
 </div>
 <div class="container lessonList">
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <th:block th:each="lessonList, state: ${lessonList}">
             <div class="accordion-item">
                 <h2 class="accordion-header" th:id="'flush-heading'+${state.count}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" th:data-bs-target="'#flush-collapse'+${state.count}" aria-expanded="false" th:aria-controls="'flush-collapse'+${state.count}">
+                    <button class="accordion-button collapsed lName" type="button" data-bs-toggle="collapse" th:data-bs-target="'#flush-collapse'+${state.count}" aria-expanded="false" th:aria-controls="'flush-collapse'+${state.count}">
                         <p th:text="${lessonList.lessonName}"></p>
                     </button>
                 </h2>
@@ -186,12 +276,50 @@
                     <div class="accordion-body">
                         <p>
                             <span th:text="${lessonList.lessonDes}"></span>
+                            <iframe th:src="${lessonList.lessonDes}"></iframe>
                         </p>
                     </div>
                 </div>
             </div>
         </th:block>
     </div>
+</div>
+<div class="container">
+    <h3 class="course-title">Requirement</h3>
+        <div class="row requirement">
+            <div class="col-md-8">
+                <ul>
+                    <th:block th:each="state: ${requirement}">
+                        <li th:text="'    '+${state}"></li>
+                    </th:block>
+                </ul>
+            </div>
+        </div>
+</div>
+<div class="container">
+    <h3 class="course-title">Description</h3>
+        <div class="row description">
+            <div class="col-md-8">
+                <ul>
+                    <li th:text="'    '+${courseDes.get(0)}" style="font-weight: 700;"></li>
+                    <th:block th:each="state: ${courseDes}">
+                        <li th:text="'    '+${state}" th:unless="${state == courseDes.get(0)}"></li>
+                    </th:block>
+                </ul>
+            </div>
+        </div>
+</div>
+<div class="container" style="margin-bottom: 50px;">
+    <h3 class="course-title">Who this course is for</h3>
+        <div class="row whoFor">
+            <div class="col-md-8">
+                <ul>
+                    <th:block th:each="state: ${whoFor}">
+                        <li th:text="'    '+${state}"></li>
+                    </th:block>
+                </ul>
+            </div>
+        </div>
 </div>
 
 <!-- ***** Learn page end ***** -->
