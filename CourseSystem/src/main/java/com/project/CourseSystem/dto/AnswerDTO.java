@@ -14,7 +14,7 @@ public class AnswerDTO {
 
     private String content;
 
-    private Boolean isCorrect;
+    private String isCorrect;
 
     private Question questionID;
 }

@@ -24,7 +24,7 @@ public class Answer {
     private String content;
 
     @Column(name="isCorrect", nullable = false)
-    private Boolean isCorrect;
+    private String isCorrect;
 
     @ManyToOne
     @JoinColumn(name="questionID", nullable = false)

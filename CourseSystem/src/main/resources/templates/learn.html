@@ -276,7 +276,8 @@
                     <div class="accordion-body">
                         <p>
                             <span th:text="${lessonList.lessonDes}"></span>
-                            <iframe th:src="${lessonList.lessonDes}"></iframe>
+                            <iframe th:src="${lessonList.lessonDes}" th:if="${lessonList.lessonID == 1}"></iframe>
+                            <a th:href="@{quiz(lessonID=${lessonList.lessonID})}" th:if="${lessonList.lessonID == 1}">Quiz Test</a>
                         </p>
                     </div>
                 </div>

@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e87a86b9-bebd-4fde-912b-d20f769ef255" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/AnswerConverter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CourseDetailsConverter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/EnrolledConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/QuestionConverter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/RatingCourseDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/QuizRevision.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/RatingCourse.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/EnrolledService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/EnrolledServiceImpl.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/policy.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/quizStyle.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/css/your-course.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/images/Python-logo-notext.svg.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/images/bg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/static/assets/js/quiz-script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/templates/quiz.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/config/WebSpringSecurity.java" beforeDir="false" />
@@ -26,35 +29,45 @@
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/LearnController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/LearnController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/LessonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/QuizController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CapstoneConverter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CourseConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/converter/CourseConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/AnswerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/AnswerDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CapstoneDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDetailsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/CourseDetailsDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/DiscountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/dto/DiscountDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Answer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Capstone.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/CourseDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/CourseDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Discount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Lesson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Notification.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Quiz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/entity/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/AnswerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/AnswerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CapstoneRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CourseDetailsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CourseDetailsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/CourseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/DiscountRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/EnrolledRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/EnrolledRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/NotificationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/repository/QuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/AnswerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CapstoneService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/QuestionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/AnswerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CapstoneServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/QuestionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/QuizServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/QuizServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CourseSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CourseSystem/src/main/resources/application.properties" afterDir="false" />
@@ -167,7 +180,7 @@
       <workItem from="1687331241776" duration="20217000" />
       <workItem from="1687403547921" duration="79000" />
       <workItem from="1687403638072" duration="6470000" />
-      <workItem from="1687440400914" duration="6832000" />
+      <workItem from="1687440400914" duration="15770000" />
     </task>
     <servers />
   </component>
@@ -187,21 +200,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
