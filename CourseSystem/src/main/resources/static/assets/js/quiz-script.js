@@ -1,4 +1,4 @@
-const questions = [
+/*const questions = [
     {
         question: "How many days makes a week ?",
         optionA: "10 days",
@@ -229,6 +229,7 @@ const questions = [
 
 
 let shuffledQuestions = [] //empty array to hold shuffled selected questions
+// */
 
 function handleQuestions() {
     //function to shuffle and push 10 questions to shuffledQuestions array

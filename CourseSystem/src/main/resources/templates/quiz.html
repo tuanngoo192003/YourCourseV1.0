@@ -83,21 +83,20 @@
 
 
         </div>
-
         <div class="next-button-container">
             <button onclick="handleNextQuestion()">Next Question</button>
         </div>
     </div>
 </main>
-<script  th:inline="javascript">
-
-    /*<![CDATA[*/
-        const testQues = /*[[${questions}]]*/ "testQues";
-        for(var i = 0; i < testQues.length; i++){
-            alert(testQues[i].question);
-        }
-    /*]]>*/
-</script>
+    <script  th:inline="javascript">
+        const questions = [
+        /*[# th:each="question : ${questions}"]*/
+            {question: [[${question.content}]]},
+        /*[/]*/
+        ];
+        let shuffledQuestions = [] //empty array to hold shuffled selected questions
+    </script>
+<script th:src="@{/assets/js/quiz-script.js}"></script>
 </body>
 
 </html>
