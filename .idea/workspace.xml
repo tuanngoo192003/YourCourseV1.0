@@ -149,6 +149,9 @@
     <configuration name="backgroundPage.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/compiler.xml/CourseSystem/templates/backgroundPage.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="list.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/compiler.xml/CourseSystem/templates/list.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="CourseSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="CourseSystem" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.CourseSystem.CourseSystemApplication" />
@@ -158,6 +161,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.list.html" />
         <item itemvalue="JavaScript Debug.backgroundPage.html" />
       </list>
     </recent_temporary>
@@ -180,8 +184,9 @@
       <workItem from="1687331241776" duration="20217000" />
       <workItem from="1687403547921" duration="79000" />
       <workItem from="1687403638072" duration="6470000" />
-      <workItem from="1687440400914" duration="15770000" />
-      <workItem from="1687516035277" duration="2935000" />
+      <workItem from="1687440400914" duration="6832000" />
+      <workItem from="1687583675404" duration="705000" />
+      <workItem from="1687620152172" duration="5771000" />
     </task>
     <servers />
   </component>
@@ -201,5 +206,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CourseSystem/src/main/java/com/project/CourseSystem/service/impl/CategoryServiceImpl.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -10,6 +10,10 @@
     <!-- Bootstrap core CSS-->
     <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
+    <!-- Additional Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     <!-- Additional CSS Files -->
     <link rel="stylesheet" th:href="@{assets/css/fontawesome.css}">
     <link rel="stylesheet" th:href="@{assets/css/courseListStyle.css}">
@@ -68,6 +72,38 @@
             background: white;
             border: none;
             color: #ffb963;
+        }
+        .listTitle{
+            font-weight: bold;
+            color: black;
+            margin-top: 20px;
+            border-bottom: rgba(173, 173, 173, 0.99) 2px solid;
+            margin-bottom: 40px;
+        }
+
+        .listTitle h1{
+            margin-top: 20px;
+            padding-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .filterTitle{
+            font-weight: bold;
+            color: black;
+            margin-top: 5px;
+            border-bottom: rgba(173, 173, 173, 0.99) 1px solid;
+            margin-bottom: 10px;
+            padding-bottom: 25px;
+        }
+
+        .listTitle h2{
+            margin-top: 20px;
+
+            font-weight: 600;
+        }
+
+        .accordion{
+            border-bottom: rgba(173, 173, 173, 0.99) 2px solid;
         }
     </style>
 </head>
@@ -141,44 +177,96 @@
 </header>
 <!-- ***** Header Area End ***** -->
     <div class="container-fluid" style="margin-left: 20px;">
+        <div class="listTitle">
+            <h1 style="margin-left: 20px">Course List</h1>
+        </div>
         <div class="row">
             <div class="col-md-3 filter">
-                <div style="display: flex; margin-bottom: 20px">
-                    <form
-                            role="form"
-                            method="post"
-                            th:action="@{/sort}"
-                            th:object="${courseDTO}"
-                            style="margin-right: 30px;"
-                    >
-                        <select name="option" onchange="this.form.submit()">
-                            <option value="" disabled selected hidden>Sort</option>
-                            <option>Newest</option>
-                            <option>Oldest</option>
-                            <option>About to end</option>
-                        </select>
-                    </form>
-                    <form
-                            role="form"
-                            method="post"
-                            th:action="@{/sort}"
-                            th:object="${courseDTO}"
-                    >
-                        <select name="option" onchange="this.form.submit()">
-                            <option value="" disabled selected hidden>Price</option>
-                            <option>High to low</option>
-                            <option>Low to high</option>
-                            <option>Free</option>
-                        </select>
-                    </form>
+                <div class="filterTitle">
+                    <h2>Filter and refine</h2>
+                </div>
+                <!-- Category -->
+                <div class="accordion accordion-flush" id="accordionFlushCategory">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingCategory">
+                                <button class="accordion-button collapsed lName" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseCategory" aria-expanded="false" aria-controls="'flush-collapseCategory">
+                                    <p th:text="'Category'"></p>
+                                </button>
+                            </h2>
+                            <div th:id="flush-collapseCategory" class="accordion-collapse collapse" aria-labelledby="flush-headingCategory" data-bs-parent="#accordionFlushCategory">
+                                <form method="post" role="form" th:action="@{/filter}" th:object="${categoryDTO}">
+                                    <div th:each="category, state: ${category}">
+                                        <div class="accordion-body">
+                                            <div class="option">
+                                                <input type="checkbox" th:value="${category.categoryName}" th:field="*{categoryName}" onclick="this.form.submit()"><p th:text="${category.categoryName}"></p>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                 </div>
 
-                <form method="post" role="form" th:action="@{/filter}" th:object="${categoryDTO}">
-                    <h3>Category</h3>
-                    <div th:each="category, state: ${category}">
-                        <div class="option"><input type="checkbox" th:value="${category.categoryName}" th:field="*{categoryName}" onclick="this.form.submit()"><p th:text="${category.categoryName}"></p><br></div>
+                <!-- Period -->
+                <div class="accordion accordion-flush" id="accordionFlushPeriod">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingPeriod">
+                            <button class="accordion-button collapsed lName" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsePeriod" aria-expanded="false" aria-controls="'flush-collapsePeriod">
+                                <p th:text="'Period'"></p>
+                            </button>
+                        </h2>
+                        <div th:id="flush-collapsePeriod" class="accordion-collapse collapse" aria-labelledby="flush-headingPeriod" data-bs-parent="#accordionFlushPeriod">
+                            <form
+                                    role="form"
+                                    method="post"
+                                    th:action="@{/sort}"
+                                    th:object="${courseDTO}"
+                                    style="margin-right: 30px;"
+                            >
+                                        <br>
+                                        <input type="radio" th:value="'Newest'" name="option" onclick="this.form.submit()"><p th:text="'Newest'"></p>
+                                        <br>
+
+                                        <input type="radio" th:value="'Oldest'" name="option" onclick="this.form.submit()"><p th:text="'Oldest'"></p>
+                                        <br>
+
+                                        <input type="radio" th:value="'About to end'" name="option" onclick="this.form.submit()"><p th:text="'About to end'"></p>
+                                        <br>
+                            </form>
+                        </div>
                     </div>
-                </form>
+                </div>
+
+                <!-- Price -->
+                <div class="accordion accordion-flush" id="accordionFlushPrice">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingPrice">
+                            <button class="accordion-button collapsed lName" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsePrice" aria-expanded="false" aria-controls="'flush-collapsePrice">
+                                <p th:text="'Price'"></p>
+                            </button>
+                        </h2>
+                        <div th:id="flush-collapsePrice" class="accordion-collapse collapse" aria-labelledby="flush-headingPrice" data-bs-parent="#accordionFlushPrice">
+                            <form
+                                    role="form"
+                                    method="post"
+                                    th:action="@{/sort}"
+                                    th:object="${courseDTO}"
+                                    style="margin-right: 30px;"
+                            >
+                                <br>
+                                <input type="radio" th:value="'High to low'" name="option" onclick="this.form.submit()"><p th:text="'High to low'"></p>
+                                <br>
+
+                                <input type="radio" th:value="'Low to high'" name="option" onclick="this.form.submit()"><p th:text="'Low to high'"></p>
+                                <br>
+
+                                <input type="radio" th:value="'Free'" name="option" onclick="this.form.submit()"><p th:text="'Free'"></p>
+                                <br>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-9 courseList" th:if="${courseList}!=null">
                 <div class="container-fluid">
